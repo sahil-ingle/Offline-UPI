@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/Register"
+        android:layout_width="174dp"
+        android:layout_height="65dp"
+        android:onClick="onRegisterClick"
+        android:text="Register with offline UPI"
+        app:layout_constraintBottom_toTopOf="@+id/toPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        " />
+
+    <Button
+        android:id="@+id/toPhone"
+        android:layout_width="174dp"
+        android:layout_height="65dp"
+        android:onClick="onPhoneClick"
+        android:text="With Mobile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <Button
+        android:id="@+id/toUPI"
+        android:layout_width="174dp"
+        android:layout_height="65dp"
+        android:onClick="onUPIClick"
+        android:text="With UPI ID"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toPhone"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <Button
+        android:id="@+id/toBank"
+        android:layout_width="174dp"
+        android:layout_height="65dp"
+        android:onClick="onBankClick"
+        android:text="With Bank Account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toUPI"
+        app:layout_constraintVertical_bias="0.15" />
+</androidx.constraintlayout.widget.ConstraintLayout>
