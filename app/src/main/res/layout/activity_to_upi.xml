@@ -11,20 +11,11 @@
         android:layout_width="321dp"
         android:layout_height="65dp"
         android:hint="Enter UPI id"
-        app:layout_constraintBottom_toTopOf="@+id/amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/amount"
-        android:layout_width="321dp"
-        android:layout_height="65dp"
-        android:hint="Enter the amount"
-        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/buttonPay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/buttonPay"

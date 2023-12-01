@@ -64,10 +64,7 @@ public class toPhone extends AppCompatActivity {
         if (requestCode == REQUEST_PHONE_CALL) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted, make the call
-                String phoneNumber = binding.phoneNumber.getText().toString().trim();
-                String amount = binding.amount.getText().toString().trim();
-                String dialString = UID + sendMoney + toMobile + "*" + phoneNumber + "*" + amount + reCheck;
-                dialPhoneNumber(dialString);
+                onPayButtonClick(null);
             } else {
                 Toast.makeText(this, "Permission denied. Something went wrong.", Toast.LENGTH_SHORT).show();
             }
