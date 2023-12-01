@@ -21,8 +21,8 @@ public class toPhone extends AppCompatActivity {
     ActivityToPhoneBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
     private static final String UID = "*99";
-    private String sendMoney = "*1";
-    private String toMobile = "*1";
+    private static final String sendMoney = "*1";
+    private static final String toMobile = "*1";
 
     private static final String reCheck = "*1#";
 
