@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String UID = "*99";
     private static final String Balance = "*3#";
+
+    private static String sendMoney = "*1";
+    private static String toBankAccount = "*5#";
     ActivityMainBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
 
@@ -131,8 +134,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
     public void onBankClick(View view){
-        Intent i = new Intent(MainActivity.this, toBankAccount.class);
-        startActivity(i);
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + Uri.encode(UID + sendMoney + toBankAccount)));
+        startActivity(intent);
     }
 
     public void onCheckBalanceClick(View view){

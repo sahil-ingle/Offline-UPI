@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +40,6 @@ public class toUPI extends AppCompatActivity {
     private static String sendMoney = "*1";
     private static String toUPI = "*3#";
 
-    private ClipboardManager clipboardManager;
-    private String upiID;
-
-    private WindowManager windowManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +48,6 @@ public class toUPI extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     public void onPayButtonClick(View view) {
@@ -88,18 +84,36 @@ public class toUPI extends AppCompatActivity {
 
     private void dialPhoneNumber(String dial) {
         String upiID = binding.upiID.getText().toString().trim();
-        copyToClipboard(upiID);
+        copyToClipboard();
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + Uri.encode(dial)));
         startActivity(intent);
     }
 
-    private void copyToClipboard(String text) {
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("Copied Text", text);
+    private void copyToClipboard(){
+        String textToCopy = binding.upiID.getText().toString();
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Copied Text", textToCopy);
         clipboard.setPrimaryClip(clip);
+        showOverlay(binding.getRoot());
+        Toast.makeText(toUPI.this, "Text copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
+    private void showOverlay(View anchorView) {
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = layoutInflater.inflate(R.layout.overlay_layout, null);
 
+        PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                600,
+                400
+        );
 
+        popupWindow.showAtLocation(anchorView, Gravity.CENTER, 0, -500);
+        popupView.postDelayed(new Runnable() {
+            public void run() {
+                popupWindow.dismiss();
+            }
+        }, 6000); // 6 seconds
+    }
 }
