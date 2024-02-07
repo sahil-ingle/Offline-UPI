@@ -1,4 +1,4 @@
-# Android Offline UPI Project
+# Offline UPI Project
 
 This Android application enables users to make offline transactions using UPI (Unified Payments Interface) without requiring an internet connection. The project is implemented in Java and provides a seamless payment experience for users even in scenarios where internet connectivity is limited or unavailable.
 
