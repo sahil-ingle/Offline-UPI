@@ -32,7 +32,6 @@ import android.telephony.SubscriptionManager;
 
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String UID = "*99";
     private static final String Balance = "*3#";
     private static String sendMoney = "*1";
