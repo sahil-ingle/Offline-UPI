@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -18,14 +17,10 @@ import com.example.offlineupi.databinding.ActivityMainBinding;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-import android.provider.Settings;
-import android.telephony.SubscriptionManager;
 
 
 
@@ -34,8 +29,8 @@ import android.telephony.SubscriptionManager;
 public class MainActivity extends AppCompatActivity {
     private static final String UID = "*99";
     private static final String Balance = "*3#";
-    private static String sendMoney = "*1";
-    private static String toBankAccount = "*5#";
+    private static final String sendMoney = "*1";
+    private static final String toBankAccount = "*5#";
     ActivityMainBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
 
@@ -63,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_PHONE_CALL) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Permission denied. Phone functionality may not work.", Toast.LENGTH_SHORT).show();
             }
