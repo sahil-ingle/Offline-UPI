@@ -6,6 +6,8 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +31,8 @@ import com.example.offlineupi.databinding.ActivityToUpiBinding;
 
 import android.Manifest;
 
+import java.util.Locale;
+
 
 public class toUPI extends AppCompatActivity {
 
@@ -40,6 +44,8 @@ public class toUPI extends AppCompatActivity {
     private static String sendMoney = "*1";
     private static String toUPI = "*3#";
 
+    public boolean isFirstTime = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,21 @@ public class toUPI extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        String myValue = Menu.getMyString();
+        setLocale(myValue);
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (isFirstTime) {
+            isFirstTime = false;
+            String myValue = Menu.getMyString();
+            setLocale(myValue);
+            recreate();
+
+        }
     }
 
     public void onPayButtonClick(View view) {
@@ -115,5 +136,22 @@ public class toUPI extends AppCompatActivity {
                 popupWindow.dismiss();
             }
         }, 6000); // 6 seconds
+    }
+
+    public void setLocale(String Lang) {
+        Locale newLocale = new Locale(Lang);
+        Locale currentLocale = getResources().getConfiguration().locale;
+
+        if (!newLocale.equals(currentLocale)) {
+            Locale.setDefault(newLocale);
+
+            Resources resources = getResources();
+            Configuration configuration = resources.getConfiguration();
+            configuration.setLocale(newLocale);
+            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+            // Restart the activity to apply the language change
+            recreate();
+        }
     }
 }

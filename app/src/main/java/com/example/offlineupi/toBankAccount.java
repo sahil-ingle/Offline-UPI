@@ -8,6 +8,8 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.offlineupi.databinding.ActivityToBankAccountBinding;
 import com.example.offlineupi.databinding.ActivityToPhoneBinding;
+
+import java.util.Locale;
 
 public class toBankAccount extends AppCompatActivity {
 
@@ -27,12 +31,29 @@ public class toBankAccount extends AppCompatActivity {
 
     private static final String reCheck = "*1#";
 
+    public boolean isFirstTime = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityToBankAccountBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        String myValue = Menu.getMyString();
+        setLocale(myValue);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (isFirstTime) {
+            isFirstTime = false;
+            String myValue = Menu.getMyString();
+            setLocale(myValue);
+            recreate();
+
+        }
     }
 
     public void onPayButtonClick(View view) {
@@ -85,5 +106,22 @@ public class toBankAccount extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + Uri.encode(dial)));
         startActivity(intent);
+    }
+
+    public void setLocale(String Lang) {
+        Locale newLocale = new Locale(Lang);
+        Locale currentLocale = getResources().getConfiguration().locale;
+
+        if (!newLocale.equals(currentLocale)) {
+            Locale.setDefault(newLocale);
+
+            Resources resources = getResources();
+            Configuration configuration = resources.getConfiguration();
+            configuration.setLocale(newLocale);
+            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+            // Restart the activity to apply the language change
+            recreate();
+        }
     }
 }

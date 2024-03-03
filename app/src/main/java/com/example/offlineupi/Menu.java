@@ -73,15 +73,19 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
                 break;
             case 2:
                 selectedLang = "*3#";
+                lang = "ta";
                 break;
             case 3:
                 selectedLang = "*4#";
+                lang = "ml";
                 break;
             case 4:
                 selectedLang = "*5#";
+                lang = "ka";
                 break;
             case 5:
                 selectedLang = "*6#";
+                lang = "te";
                 break;
 
         }
