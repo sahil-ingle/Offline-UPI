@@ -1,8 +1,11 @@
 package com.example.offlineupi;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +20,9 @@ import com.example.offlineupi.databinding.ActivityMainBinding;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
+import com.example.offlineupi.databinding.ActivityMenuBinding;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -26,13 +31,15 @@ import com.google.android.gms.common.GoogleApiAvailability;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Menu{
     private static final String UID = "*99";
     private static final String Balance = "*3#";
     private static final String sendMoney = "*1";
     private static final String toBankAccount = "*5#";
     ActivityMainBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
+
+    public boolean isFirstTime = true;
 
 
     @Override
@@ -50,6 +57,21 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
         }
 
+        String myValue = Menu.getMyString();
+        setLocale(myValue);
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (isFirstTime) {
+            isFirstTime = false;
+            String myValue = Menu.getMyString();
+            setLocale(myValue);
+            recreate();
+
+        }
     }
 
     @Override
@@ -136,6 +158,23 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + Uri.encode(UID + Balance)));
         startActivity(intent);
+    }
+
+    public void setLocale(String Lang) {
+        Locale newLocale = new Locale(Lang);
+        Locale currentLocale = getResources().getConfiguration().locale;
+
+        if (!newLocale.equals(currentLocale)) {
+            Locale.setDefault(newLocale);
+
+            Resources resources = getResources();
+            Configuration configuration = resources.getConfiguration();
+            configuration.setLocale(newLocale);
+            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+            // Restart the activity to apply the language change
+            recreate();
+        }
     }
 
 }

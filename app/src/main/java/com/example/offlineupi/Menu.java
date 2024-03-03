@@ -2,7 +2,9 @@ package com.example.offlineupi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import android.content.res.Resources;
+
 import com.example.offlineupi.databinding.ActivityMenuBinding;
+
+import java.util.Locale;
+
 
 public class Menu extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     ActivityMenuBinding binding;
+
+    public static String lang = "en";
+    private Context context;
+
 
     private static final String UID = "*99";
     private String changeAccount = "*4";
@@ -26,6 +37,8 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     private Spinner spinner;
     private static final String[] paths = {"English", "हिंदी (Hindi)", "தமிழ் (Tamil)", "മലയാളം (Malayalam)", "ಕನ್ನಡ (Kannada)", "తెలుగు (Telugu)"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +54,10 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
     }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
@@ -49,9 +65,11 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         switch (position) {
             case 0:
                 selectedLang = "*1#";
+                lang = "en";
                 break;
             case 1:
                 selectedLang = "*2#";
+                lang = "hi";
                 break;
             case 2:
                 selectedLang = "*3#";
@@ -69,15 +87,22 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         }
     }
 
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // TODO Auto-generated method stub
     }
 
 
+
+
     public void onLangChangeClick(View view){
         String dialString = UID + changeAccount + language + selectedLang;
-        dialPhoneNumber(dialString);
+        //dialPhoneNumber(dialString);
+        setLocale(lang);
+    }
+    public static String getMyString(){
+        return lang;
     }
     public void onChangeBankAccount(View view){
         String dialString = UID + changeAccount + remark;
@@ -89,4 +114,18 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         intent.setData(Uri.parse("tel:" + Uri.encode(dial)));
         startActivity(intent);
     }
+
+    public void setLocale(String Lang) {
+        Locale locale = new Locale(Lang);
+        Locale.setDefault(locale);
+
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        recreate();
+    }
+
+
+
 }

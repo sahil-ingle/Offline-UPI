@@ -1,0 +1,10 @@
+
+<resources>
+    <string name="app_name">Offline UPI</string>
+    <string name="selected_language">हिन्दी</string>
+    <string name="greet">नमस्ते, जी यफ जी</string>
+    <string name="test">यह हिंदी में है</string>
+    <string name="hello_world">यह हिंदी में है</string>
+    <string name="test_word">नमस्ते, जी यफ जी</string>
+    <string name="sim">हिन्दी</string>
+</resources>

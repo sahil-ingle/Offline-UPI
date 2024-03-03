@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Offline UPI</string>
+    <string name="selected_language">English</string>
+    <string name="greet">Hi, GFG</string>
+    <string name="test">OK its test</string>
+    <string name="hello_world">Hello world</string>
+    <string name="test_word">Test word</string>
+    <string name="sim">SIM</string>
 </resources>

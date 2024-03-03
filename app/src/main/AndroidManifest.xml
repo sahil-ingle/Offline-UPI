@@ -24,15 +24,6 @@
             android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".changeLanguage"
-            android:exported="false" />
-        <activity
-            android:name=".changeBankAccount"
-            android:exported="false" />
-        <activity
-            android:name=".toCheckBalance"
-            android:exported="false" />
-        <activity
             android:name=".toBankAccount"
             android:exported="false" />
         <activity
