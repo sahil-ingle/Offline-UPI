@@ -33,7 +33,7 @@
         android:layout_height="65dp"
         android:layout_marginBottom="152dp"
         android:onClick="onPayButtonClick"
-        android:text="@string/Pay"
+        android:text="@string/pay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
