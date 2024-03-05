@@ -3,6 +3,7 @@ package com.example.offlineupi;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -49,6 +50,9 @@ public class MainActivity extends Menu{
         View view = binding.getRoot();
         setContentView(view);
 
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String savedLang = sharedPref.getString(LANG_KEY, "en");
+
         if (isDeviceRooted()) {
             finishAffinity();
         }
@@ -58,7 +62,7 @@ public class MainActivity extends Menu{
         }
 
         String myValue = Menu.getMyString();
-        setLocale(myValue);
+        setLocale(savedLang);
 
     }
 

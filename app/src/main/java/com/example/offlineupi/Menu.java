@@ -1,9 +1,9 @@
 package com.example.offlineupi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,21 +11,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
 import android.content.res.Resources;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
 
 import java.util.Locale;
 
-
-public class Menu extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Menu extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ActivityMenuBinding binding;
+    private SharedPreferences sharedPref;
 
     public static String lang = "en";
-    private Context context;
-
+    public static final String LANG_KEY = "selected_language";
 
     private static final String UID = "*99";
     private String changeAccount = "*4";
@@ -38,8 +36,6 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
     private Spinner spinner;
     private static final String[] paths = {"English", "हिंदी (Hindi)", "தமிழ் (Tamil)", "മലയാളം (Malayalam)", "ಕನ್ನಡ (Kannada)", "తెలుగు (Telugu)"};
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,21 +43,28 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         View view = binding.getRoot();
         setContentView(view);
 
-        spinner = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Menu.this,
-                android.R.layout.simple_spinner_item,paths);
+        sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Menu.this,
+                android.R.layout.simple_spinner_item, paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        // Retrieve last selected language from SharedPreferences
+        String lastSelectedLang = sharedPref.getString(LANG_KEY, "en");
+        for (int i = 0; i < paths.length; i++) {
+            if (paths[i].toLowerCase().contains(lastSelectedLang)) {
+                spinner.setSelection(i);
+                break;
+            }
+        }
     }
-
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-
         switch (position) {
             case 0:
                 selectedLang = "*1#";
@@ -87,28 +90,29 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
                 selectedLang = "*6#";
                 lang = "te";
                 break;
-
         }
     }
-
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // TODO Auto-generated method stub
     }
 
-
-
-
-    public void onLangChangeClick(View view){
+    public void onLangChangeClick(View view) {
         String dialString = UID + changeAccount + language + selectedLang;
         //dialPhoneNumber(dialString);
         setLocale(lang);
+        // Save selected language to SharedPreferences
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(LANG_KEY, lang);
+        editor.apply();
     }
-    public static String getMyString(){
+
+    public static String getMyString() {
         return lang;
     }
-    public void onChangeBankAccount(View view){
+
+    public void onChangeBankAccount(View view) {
         String dialString = UID + changeAccount + remark;
         dialPhoneNumber(dialString);
     }
@@ -129,7 +133,4 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
         recreate();
     }
-
-
-
 }
