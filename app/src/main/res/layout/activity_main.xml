@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <!-- Search bar with profile icon at the top -->
     <RelativeLayout
@@ -175,6 +179,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="25dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="0dp"
         android:onClick="onCheckBalanceClick"
         android:text="@string/check_balance"
@@ -191,6 +196,8 @@
 
 
 </RelativeLayout>
+
+</ScrollView>
 
 
 

@@ -170,7 +170,6 @@ public class MainActivity extends Menu{
 
         if (!newLocale.equals(currentLocale)) {
             Locale.setDefault(newLocale);
-
             Resources resources = getResources();
             Configuration configuration = resources.getConfiguration();
             configuration.setLocale(newLocale);

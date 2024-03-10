@@ -1,17 +1,18 @@
 package com.example.offlineupi;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.content.res.Resources;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
 
@@ -42,6 +43,15 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        String name = preferences.getString("myName", "");
+        String phone = preferences.getString("myPhone", "");
+        String upiId = preferences.getString("myUPIid", "");
+
+        binding.myName.setText(name);
+        binding.myPhone.setText(phone);
+        binding.myUPIid.setText(upiId);
 
         sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
@@ -121,6 +131,11 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + Uri.encode(dial)));
         startActivity(intent);
+    }
+
+    public void onEditInfoClick(View view){
+        Intent i = new Intent(Menu.this, RegisterPage.class);
+        startActivity(i);
     }
 
     public void setLocale(String Lang) {

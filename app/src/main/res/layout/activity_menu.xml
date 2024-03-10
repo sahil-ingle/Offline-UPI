@@ -6,6 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/myName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="Name: John Doe"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/myPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="Phone: +1234567890"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/myUPIid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="UPI ID: john.doe@upi"
+            android:paddingBottom="8dp"/>
+
+        <Button
+            android:id="@+id/editInfoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onEditInfoClick"
+            android:text="edit info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/changeBankAccountBtn"
         android:layout_width="196dp"
