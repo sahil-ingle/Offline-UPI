@@ -1,89 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Menu">
+    android:layout_height="match_parent">
 
+
+
+    <!-- Info Section -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="25dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/back_arrow"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/myName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
+            android:padding="5dp"
             android:text="Name: John Doe"
-            android:paddingBottom="8dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/myPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
+            android:padding="5dp"
             android:text="Phone: +1234567890"
-            android:paddingBottom="8dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/myUPIid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
+            android:padding="5dp"
             android:text="UPI ID: john.doe@upi"
-            android:paddingBottom="8dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/editInfoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#0288D1"
             android:onClick="onEditInfoClick"
-            android:text="edit info"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Edit Info" />
+
+        <TextView
+            android:id="@+id/changeBankAccountBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:textSize="25dp"
+            android:drawableLeft="@drawable/bank_icon"
+            android:drawablePadding="10dp"
+            android:onClick="onChangeBankAccount"
+            android:text="@string/change_bank_account"
+            android:gravity="start|center" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                />
+
+            <!-- Language Change Button -->
+            <Button
+                android:id="@+id/langChangeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="20dp"
+                android:onClick="onLangChangeClick"
+                android:text="@string/change_language"
+                android:backgroundTint="#0288D1"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-
     <Button
-        android:id="@+id/changeBankAccountBtn"
-        android:layout_width="196dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="152dp"
-        android:onClick="onChangeBankAccount"
-        android:text="@string/change_bank_account"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeBankAccountBtn" />
-
-    <Button
-        android:id="@+id/langChangeBtn"
-        android:layout_width="168dp"
+        android:id="@+id/logOutBtn"
+        android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:onClick="onLangChangeClick"
-        android:text="@string/change_language"
+        android:layout_marginBottom="25dp"
+        android:text="Log Out"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        android:backgroundTint="#0288D1"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

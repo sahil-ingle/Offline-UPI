@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,6 +72,21 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
                 break;
             }
         }
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Menu.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        binding.logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Coming soon..", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -123,6 +139,7 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         return lang;
     }
 
+
     public void onChangeBankAccount(View view) {
         String dialString = UID + changeAccount + remark;
         dialPhoneNumber(dialString);
@@ -156,4 +173,5 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         startActivity(intent);
         finish();
     }
+
 }

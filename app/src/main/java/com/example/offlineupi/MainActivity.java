@@ -53,6 +53,15 @@ public class MainActivity extends Menu{
         View view = binding.getRoot();
         setContentView(view);
 
+        SharedPreferences prefs = getSharedPreferences("login_state", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("isLogin", true);
+        editor.apply();
+
+
+
+
+
         SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String savedLang = sharedPref.getString(LANG_KEY, "en");
 
@@ -67,6 +76,12 @@ public class MainActivity extends Menu{
         String myValue = Menu.getMyString();
         setLocale(savedLang);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
     }
 
     @Override

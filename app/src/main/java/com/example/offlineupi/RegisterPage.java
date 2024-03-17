@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.offlineupi.databinding.ActivityRegisterPageBinding;
 
@@ -28,16 +29,23 @@ public class RegisterPage extends AppCompatActivity {
                 String myPhone = binding.myPhone.getText().toString().trim();
                 String myUPIid = binding.myUPIid.getText().toString().trim();
 
-                SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("myName", myName);
-                editor.putString("myPhone", myPhone);
-                editor.putString("myUPIid", myUPIid);
-                editor.apply();
+                if(myName.isEmpty() || myPhone.isEmpty()){
+                    Toast.makeText(RegisterPage.this, "Fill all the Mandatory Info..", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("myName", myName);
+                    editor.putString("myPhone", myPhone);
+                    editor.putString("myUPIid", myUPIid);
+                    editor.apply();
 
-                // Move to next activity
-                // For example:
-                startActivity(new Intent(RegisterPage.this, MainActivity.class));
+                    // Move to next activity
+                    // For example:
+                    startActivity(new Intent(RegisterPage.this, MainActivity.class));
+
+                }
+
 
             }
         });
