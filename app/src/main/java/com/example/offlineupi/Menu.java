@@ -116,6 +116,7 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(LANG_KEY, lang);
         editor.apply();
+        relaunchApp();
     }
 
     public static String getMyString() {
@@ -147,5 +148,12 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         configuration.setLocale(locale);
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
         recreate();
+    }
+
+    public void relaunchApp() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

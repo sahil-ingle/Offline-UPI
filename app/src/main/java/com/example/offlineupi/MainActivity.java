@@ -76,7 +76,6 @@ public class MainActivity extends Menu{
             isFirstTime = false;
             String myValue = Menu.getMyString();
             setLocale(myValue);
-            recreate();
 
         }
     }
