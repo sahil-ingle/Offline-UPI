@@ -38,8 +38,7 @@ public class toUPI extends AppCompatActivity {
 
     ActivityToUpiBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
-    private static final int REQUEST_CLIPBOARD_PERMISSION = 2;
-    private static final int REQUEST_ACCESSIBILITY_PERMISSION = 3;
+
     private static final String UID = "*99";
     private static String sendMoney = "*1";
     private static String toUPI = "*3#";

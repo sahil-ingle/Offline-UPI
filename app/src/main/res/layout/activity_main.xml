@@ -142,16 +142,18 @@
             android:padding="15dp">
 
             <ImageView
+                android:onClick="onScannerClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/image_4" />
 
             <TextView
+                android:onClick="onScannerClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="PAyusing scanner" />
+                android:text="Payusing scanner" />
         </LinearLayout>
 
     </GridLayout>

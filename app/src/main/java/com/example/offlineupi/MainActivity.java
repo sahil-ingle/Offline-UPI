@@ -37,6 +37,9 @@ public class MainActivity extends Menu{
     private static final String Balance = "*3#";
     private static final String sendMoney = "*1";
     private static final String toBankAccount = "*5#";
+
+    private static final String toUPIid = "*3#";
+
     ActivityMainBinding binding;
     private static final int REQUEST_PHONE_CALL = 1;
 
@@ -143,14 +146,20 @@ public class MainActivity extends Menu{
         startActivity(intent);
     }
 
+    public void onScannerClick(View view){
+        Intent i = new Intent(MainActivity.this, ScanQRActivity.class);
+        startActivity(i);
+    }
+
     public void onPhoneClick(View view){
         Intent i = new Intent(MainActivity.this, toPhone.class);
         startActivity(i);
     }
 
     public void onUPIClick(View view){
-        Intent i = new Intent(MainActivity.this, toUPI.class);
-        startActivity(i);
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + Uri.encode(UID + sendMoney + toUPIid)));
+        startActivity(intent);
     }
     public void onBankClick(View view){
         Intent intent = new Intent(Intent.ACTION_CALL);

@@ -44,6 +44,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-base:18.2.0")
     implementation("com.google.android.gms:play-services-safetynet:18.0.1")
     implementation("com.google.android.gms:play-services-tasks:18.0.2")
+    implementation("com.google.android.gms:play-services-vision-common:19.1.3")
+    implementation("com.google.android.gms:play-services-vision:20.1.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
