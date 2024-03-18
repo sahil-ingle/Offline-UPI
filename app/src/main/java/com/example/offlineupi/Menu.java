@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
@@ -50,6 +52,12 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         String phone = preferences.getString("myPhone", "");
         String upiId = preferences.getString("myUPIid", "");
 
+
+        if (upiId.isEmpty()) {
+            // Set default value if UPI ID is empty
+            upiId = "Enter UPI id";
+        }
+
         binding.myName.setText(name);
         binding.myPhone.setText(phone);
         binding.myUPIid.setText(upiId);
@@ -63,6 +71,7 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
 
         // Retrieve last selected language from SharedPreferences
         String lastSelectedLang = sharedPref.getString(LANG_KEY, "en");

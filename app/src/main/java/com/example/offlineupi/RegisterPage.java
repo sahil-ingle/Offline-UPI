@@ -55,7 +55,7 @@ public class RegisterPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Retrieve and populate EditText fields with saved data
+        // Retrieve and populate EditT ext fields with saved data
         SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
         binding.myName.setText(preferences.getString("myName", ""));
         binding.myPhone.setText(preferences.getString("myPhone", ""));

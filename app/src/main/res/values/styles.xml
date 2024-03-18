@@ -11,4 +11,10 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
+
+
 </resources>

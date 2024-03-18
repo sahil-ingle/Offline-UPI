@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#00FFE2">
 
 
 
@@ -12,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:orientation="vertical"
         android:padding="25dp">
 
@@ -25,14 +25,24 @@
             android:background="@drawable/back_arrow"
             android:gravity="center"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="25dp"
+        android:background="@drawable/overlay_background">
+
+
         <TextView
             android:id="@+id/myName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="Name: John Doe"
+            android:drawableLeft="@drawable/ic_profile"
+            android:drawablePadding="5dp"
             android:textColor="@android:color/black"
-            android:textSize="30dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/myPhone"
@@ -40,8 +50,10 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="Phone: +1234567890"
+            android:drawableLeft="@drawable/ic_call"
             android:textColor="@android:color/black"
-            android:textSize="20dp" />
+            android:gravity="center_vertical"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/myUPIid"
@@ -50,7 +62,9 @@
             android:padding="5dp"
             android:text="UPI ID: john.doe@upi"
             android:textColor="@android:color/black"
-            android:textSize="20dp" />
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            app:drawableLeftCompat="@drawable/ic_upi" />
 
         <Button
             android:id="@+id/editInfoBtn"
@@ -62,12 +76,23 @@
             android:onClick="onEditInfoClick"
             android:text="Edit Info" />
 
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="25dp"
+        android:background="@drawable/overlay_background">
+
         <TextView
             android:id="@+id/changeBankAccountBtn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:drawableLeft="@drawable/bank_icon"
             android:drawablePadding="10dp"
             android:onClick="onChangeBankAccount"
@@ -78,30 +103,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
 
+
             <Spinner
+                android:theme="@style/mySpinnerItemStyle"
                 android:id="@+id/spinner"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:background="@color/white"
+                android:background="@drawable/language_backgorund1"
+                android:textAlignment="center"
                 />
 
             <!-- Language Change Button -->
-            <Button
+            <TextView
                 android:id="@+id/langChangeBtn"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="20dp"
+                android:layout_height="match_parent"
+                android:textSize="15dp"
+                android:textColor="@color/black"
                 android:onClick="onLangChangeClick"
                 android:text="@string/change_language"
-                android:backgroundTint="#0288D1"
-                android:gravity="center"/>
+                android:background="@drawable/language_background2"
+                android:gravity="center" />
 
         </LinearLayout>
+
+    </LinearLayout>
 
 
     </LinearLayout>
