@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,10 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.util.Locale;
 
@@ -96,6 +101,33 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
                 Toast.makeText(Menu.this, "Coming soon..", Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.generateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    generateQRCode("text");
+
+            }
+        });
+    }
+
+    private void generateQRCode(String text) {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 512, 512);
+            int width = bitMatrix.getWidth();
+            int height = bitMatrix.getHeight();
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    bitmap.setPixel(x, y, bitMatrix.get(x, y) ? getResources().getColor(R.color.black) : getResources().getColor(R.color.white));
+                }
+            }
+            binding.qrImageView.setImageBitmap(bitmap);
+            binding.qrImageView.setVisibility(View.VISIBLE);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

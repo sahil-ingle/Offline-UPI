@@ -87,6 +87,20 @@
         android:padding="25dp"
         android:background="@drawable/overlay_background">
 
+        <Button
+            android:id="@+id/generateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:id="@+id/qrImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/changeBankAccountBtn"
             android:layout_width="match_parent"
