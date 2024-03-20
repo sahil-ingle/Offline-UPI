@@ -102,33 +102,9 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
             }
         });
 
-        binding.generateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    generateQRCode("text");
-
-            }
-        });
     }
 
-    private void generateQRCode(String text) {
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        try {
-            BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 512, 512);
-            int width = bitMatrix.getWidth();
-            int height = bitMatrix.getHeight();
-            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    bitmap.setPixel(x, y, bitMatrix.get(x, y) ? getResources().getColor(R.color.black) : getResources().getColor(R.color.white));
-                }
-            }
-            binding.qrImageView.setImageBitmap(bitmap);
-            binding.qrImageView.setVisibility(View.VISIBLE);
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
@@ -181,10 +157,16 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
 
+    public void onQRGenerateClick(View view){
+        Intent i = new Intent(Menu.this, QRGenerateActivity.class);
+        startActivity(i);
+    }
+
     public void onChangeBankAccount(View view) {
         String dialString = UID + changeAccount + remark;
         dialPhoneNumber(dialString);
     }
+
 
     private void dialPhoneNumber(String dial) {
         Intent intent = new Intent(Intent.ACTION_CALL);
