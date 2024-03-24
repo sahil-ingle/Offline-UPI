@@ -12,17 +12,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.ColorInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
+
 
 import java.util.Locale;
 
@@ -39,8 +35,9 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     private String language = "*2";
     private String remark = "*1#";
-
     private String selectedLang = "*1#";
+
+    private boolean isLanguageChange = false;
 
     private Spinner spinner;
     private static final String[] paths = {"English", "हिंदी (Hindi)", "தமிழ் (Tamil)", "മലയാളം (Malayalam)", "ಕನ್ನಡ (Kannada)", "తెలుగు (Telugu)"};
@@ -143,17 +140,27 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     public void onLangChangeClick(View view) {
         String dialString = UID + changeAccount + language + selectedLang;
-        //dialPhoneNumber(dialString);
+        dialPhoneNumber(dialString);
         setLocale(lang);
         // Save selected language to SharedPreferences
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(LANG_KEY, lang);
         editor.apply();
-        relaunchApp();
+        isLanguageChange = true;
     }
 
     public static String getMyString() {
         return lang;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isLanguageChange){
+            relaunchApp();
+        }else {
+            Intent i = new Intent(Menu.this, MainActivity.class);
+            startActivity(i);
+        }
     }
 
 
@@ -197,9 +204,10 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     public void relaunchApp() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
     }
+
 
 }
