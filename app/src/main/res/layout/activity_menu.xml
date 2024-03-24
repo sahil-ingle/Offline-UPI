@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00FFE2">
@@ -11,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:padding="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/backBtn"
@@ -20,153 +24,147 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/back_arrow"
-            android:gravity="center"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="25dp"
-        android:background="@drawable/overlay_background">
-
-
-        <TextView
-            android:id="@+id/myName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="Name: John Doe"
-            android:drawableLeft="@drawable/ic_profile"
-            android:drawablePadding="5dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/myPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="Phone: +1234567890"
-            android:drawableLeft="@drawable/ic_call"
-            android:textColor="@android:color/black"
-            android:gravity="center_vertical"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/myUPIid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="UPI ID: john.doe@upi"
-            android:textColor="@android:color/black"
-            android:gravity="center_vertical"
-            android:textSize="20dp"
-            app:drawableLeftCompat="@drawable/ic_upi" />
+            android:gravity="center"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:background="@drawable/overlay_background"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-            <Button
-                android:id="@+id/editInfoBtn"
-                android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/myName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:backgroundTint="#0288D1"
-                android:onClick="onEditInfoClick"
-                android:text="@string/edit_info" />
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:drawableStartCompat="@drawable/ic_profile" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/resetPin"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/myPhone"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:backgroundTint="#0288D1"
-                android:onClick="onResetPinClick"
-                android:text="@string/reset_pin" />
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:drawableLeftCompat="@drawable/ic_call" />
+
+            <TextView
+                android:id="@+id/myUPIid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:drawableLeftCompat="@drawable/ic_upi" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/editInfoBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:backgroundTint="#0288D1"
+                    android:onClick="onEditInfoClick"
+                    android:text="@string/edit_info" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/resetPin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:backgroundTint="#0288D1"
+                    android:onClick="onResetPinClick"
+                    android:text="@string/reset_pin" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
-
-
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:padding="25dp"
-        android:background="@drawable/overlay_background">
-
-        <TextView
-            android:id="@+id/QRGenerateBtn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_qr"
-            android:drawablePadding="10dp"
-            android:onClick="onQRGenerateClick"
-            android:text="@string/your_qr_code"
-            android:gravity="start|center" />
-
-
-        <TextView
-            android:id="@+id/changeBankAccountBtn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/bank_icon"
-            android:drawablePadding="10dp"
-            android:onClick="onChangeBankAccount"
-            android:text="@string/change_bank_account"
-            android:gravity="start|center" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:background="@drawable/overlay_background"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-
-
-            <Spinner
-                android:theme="@style/mySpinnerItemStyle"
-                android:id="@+id/spinner"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:background="@drawable/language_backgorund1"
-                android:textAlignment="center"
-                />
-
-            <!-- Language Change Button -->
             <TextView
-                android:id="@+id/langChangeBtn"
+                android:id="@+id/QRGenerateBtn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:onClick="onLangChangeClick"
-                android:text="@string/change_language"
-                android:background="@drawable/language_background2"
-                android:gravity="center" />
+                android:layout_height="50dp"
+                android:drawablePadding="10dp"
+                android:gravity="start|center"
+                android:onClick="onQRGenerateClick"
+                android:text="@string/your_qr_code"
+                android:textSize="20sp"
+                app:drawableLeftCompat="@drawable/ic_qr" />
+
+
+            <TextView
+                android:id="@+id/changeBankAccountBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="10dp"
+                android:gravity="start|center"
+                android:onClick="onChangeBankAccount"
+                android:text="@string/change_bank_account"
+                android:textSize="20sp"
+                app:drawableLeftCompat="@drawable/bank_icon" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/language_backgorund1"
+                    android:textAlignment="center"
+                    android:theme="@style/mySpinnerItemStyle" />
+
+                <!-- Language Change Button -->
+                <TextView
+                    android:id="@+id/langChangeBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/language_background2"
+                    android:gravity="center"
+                    android:onClick="onLangChangeClick"
+                    android:text="@string/change_language"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="TextSizeCheck" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 
     </LinearLayout>
