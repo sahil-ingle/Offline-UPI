@@ -10,7 +10,7 @@
         android:id="@+id/upiID"
         android:layout_width="321dp"
         android:layout_height="65dp"
-        android:hint="@string/enter_upi_id"
+        android:hint="enter_upi_id"
         app:layout_constraintBottom_toTopOf="@+id/buttonPay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -34,7 +34,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
-        android:text="Continue"
+        android:text="@string/continue_next"
         android:textSize="25dp"
         android:backgroundTint="#0288D1"
         app:layout_constraintBottom_toBottomOf="parent"

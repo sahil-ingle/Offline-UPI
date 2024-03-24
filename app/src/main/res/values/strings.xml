@@ -1,21 +1,26 @@
 <resources>
     <string name="app_name">Offline UPI</string>
-    <string name="selected_language">English</string>
-    <string name="test_word">Test word</string>
-    <string name="sim">SIM</string>
+    <string name="continue_next">Continue</string>
+    <string name="to_mobile_or_contact">To Mobile or Contact</string>
+    <string name="upi_transfer">UPI Transfer</string>
+    <string name="bank_transfer">Bank Transfer</string>
+    <string name="scan_pay"><![CDATA[Scan & Pay]]></string>
+    <string name="see_transaction_history">See Transaction History</string>
+    <string name="check_bank_balance">Check Bank Balance</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="your_qr_code">Your QR code</string>
     <string name="change_bank_account">Change Bank Account</string>
     <string name="change_language">Change Language</string>
-    <string name="register_with_offline_upi">Register with offline UPI</string>
-    <string name="with_mobile">With Mobile</string>
-    <string name="with_upi_id">With UPI ID</string>
-    <string name="with_bank_account">With Bank Account</string>
-    <string name="check_balance">Check Balance</string>
-    <string name="menu">Menu</string>
+    <string name="log_out">Log Out</string>
+    <string name="scan_to_pay_with_any_upi_app">Scan to pay with any UPI app</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="upi_id_optional">UPI ID (optional)</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_amount">Enter Amount</string>
     <string name="pay">Pay</string>
-    <string name="enter_ifsc_code">Enter IFSC Code</string>
-    <string name="enter_the_amount">Enter the amount</string>
-    <string name="enter_bank_account_number">Enter Bank Account Number</string>
-    <string name="enter_a_phone_number">Enter a phone number</string>
-    <string name="enter_upi_id">Enter UPI id</string>
-    <string name="paste_here">Paste here</string>
+    <string name="paste_here">Paste Here</string>
+    <string name="search">Search</string>
+
 </resources>

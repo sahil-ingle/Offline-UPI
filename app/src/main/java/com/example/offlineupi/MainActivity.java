@@ -149,9 +149,6 @@ public class MainActivity extends Menu{
         startActivity(intent);
     }
 
-    public void onChangeSimClick(View view){
-        Toast.makeText(this,"Don't Press this button Stupid !!! ",Toast.LENGTH_SHORT).show();
-    }
 
     public void onRegisterClick(View view) {
 

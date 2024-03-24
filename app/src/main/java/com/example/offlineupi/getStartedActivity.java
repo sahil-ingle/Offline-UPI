@@ -90,7 +90,7 @@ public class getStartedActivity extends AppCompatActivity implements AdapterView
                 lang = "ml";
                 break;
             case 4:
-                lang = "ka";
+                lang = "kn";
                 break;
             case 5:
                 lang = "te";
@@ -105,8 +105,6 @@ public class getStartedActivity extends AppCompatActivity implements AdapterView
     public void onNothingSelected(AdapterView<?> parent) {
         // TODO Auto-generated method stub
     }
-
-
 
 
     public void setLocale(String Lang) {

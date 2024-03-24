@@ -33,7 +33,7 @@
             android:layout_marginEnd="5dp"
             android:layout_toStartOf="@id/menu"
             android:background="@drawable/rounded_search_bar_background"
-            android:hint="Search"
+            android:hint="@string/search"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:textColorHint="#8A000000" />
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Pay using phone" />
+                android:text="@string/to_mobile_or_contact" />
         </LinearLayout>
 
         <!-- Icon 2 -->
@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="pay using UPI" />
+                android:text="@string/upi_transfer" />
         </LinearLayout>
 
         <!-- Icon 3 -->
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="pay using bank account" />
+                android:text="@string/bank_transfer" />
         </LinearLayout>
 
         <!-- Icon 4 -->
@@ -153,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Payusing scanner" />
+                android:text="@string/scan_pay" />
         </LinearLayout>
 
     </GridLayout>
@@ -168,7 +168,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="0dp"
-        android:text="Enter UPI ID"
+        android:text="@string/see_transaction_history"
         android:textAlignment="center"
         android:textSize="25dp" />
 
@@ -184,17 +184,9 @@
         android:layout_marginBottom="50dp"
         android:layout_marginEnd="0dp"
         android:onClick="onCheckBalanceClick"
-        android:text="@string/check_balance"
+        android:text="@string/check_bank_balance"
         android:textAlignment="center"
         android:textSize="25dp" />
-
-        <Button
-        android:id="@+id/changeSimBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:onClick="onChangeSimClick"
-        android:text="@string/sim"
-        />
 
 
 </RelativeLayout>
@@ -202,94 +194,3 @@
 </ScrollView>
 
 
-
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".MainActivity">-->
-
-<!--    <Button-->
-<!--        android:id="@+id/changeSimBtn"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:onClick="onChangeSimClick"-->
-<!--        android:text="@string/sim"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-<!--    " />-->
-
-
-<!--    <Button-->
-<!--        android:id="@+id/Register"-->
-<!--        android:layout_width="174dp"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:onClick="onRegisterClick"-->
-<!--        android:text="@string/register_with_offline_upi"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/toPhone"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/changeSimBtn" />-->
-<!--        " />-->
-
-
-<!--    <Button-->
-<!--        android:id="@+id/toPhone"-->
-<!--        android:layout_width="174dp"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:onClick="onPhoneClick"-->
-<!--        android:text="@string/with_mobile"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.497"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.303" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/toUPI"-->
-<!--        android:layout_width="174dp"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:onClick="onUPIClick"-->
-<!--        android:text="@string/with_upi_id"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.497"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toPhone"-->
-<!--        app:layout_constraintVertical_bias="0.089" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/toBank"-->
-<!--        android:layout_width="174dp"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:onClick="onBankClick"-->
-<!--        android:text="@string/with_bank_account"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.497"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toUPI"-->
-<!--        app:layout_constraintVertical_bias="0.15" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/checkBalance"-->
-<!--        android:layout_width="174dp"-->
-<!--        android:layout_height="65dp"-->
-<!--        android:layout_marginTop="48dp"-->
-<!--        android:onClick="onCheckBalanceClick"-->
-<!--        android:text="@string/check_balance"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.502"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toBank" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/menu"-->
-<!--        android:layout_width="90dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:text="@string/menu"-->
-<!--        android:onClick="onMenuClick"/>-->
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
