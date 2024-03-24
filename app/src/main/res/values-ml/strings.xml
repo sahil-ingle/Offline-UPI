@@ -23,5 +23,7 @@
         <string name="pay">പേയ്</string>
         <string name="paste_here">ഇവിടെ ചേർക്കുക</string>
         <string name="search">തിരയുക</string>
+    <string name="reset_pin">പിൻ മറക്കുക</string>
+
 
 </resources>

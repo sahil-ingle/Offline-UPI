@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:gravity="center"
+    android:paddingBottom="16dp"
+    tools:context=".SetPinActivity">
+
+
+    <EditText
+        android:id="@+id/editTextPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="****"
+        android:inputType="numberPassword"
+        android:gravity="center"
+        android:maxLength="4"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextConfirmPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="****"
+        android:inputType="numberPassword"
+        android:layout_below="@id/editTextPin"
+        android:gravity="center"
+        android:maxLength="4"
+        android:layout_marginBottom="16dp"/>
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_below="@id/editTextConfirmPin"/>
+
+</RelativeLayout>

@@ -23,5 +23,7 @@
         <string name="pay">भुगतान करें</string>
         <string name="paste_here">यहाँ पेस्ट करें</string>
         <string name="search">खोजें</string>
+    <string name="reset_pin">पिन रीसेट करें</string>
+
 
 </resources>

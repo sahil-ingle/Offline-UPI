@@ -23,5 +23,7 @@
         <string name="pay">ಪಾವ್</string>
         <string name="paste_here">ಇಲ್ಲಿ ಹಚ್ಚಿರಿ</string>
         <string name="search">ಹುಡುಕಿ</string>
+    <string name="reset_pin">ಪಿನ್ ಮರುಹೊಂದಿಸಿ</string>
+
 
 </resources>

@@ -41,7 +41,7 @@ public class getStartedActivity extends AppCompatActivity implements AdapterView
         boolean isLoggedIn  = prefs.getBoolean("isLogin", false );
 
         if (isLoggedIn){
-            Intent i = new Intent(this,MainActivity.class);
+            Intent i = new Intent(this,EnterPinActivity.class);
             startActivity(i);
         }
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".EnterPinActivity">
+
+    <!-- Other layout elements for entering and confirming PIN -->
+
+    <LinearLayout
+        android:id="@+id/editTextContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:weightSum="4">
+
+        <EditText
+            android:id="@+id/customEditText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="*"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:gravity="center_vertical|center_horizontal"/>
+
+        <EditText
+            android:id="@+id/customEditText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="*"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:gravity="center_vertical|center_horizontal"/>
+
+        <EditText
+            android:id="@+id/customEditText3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="*"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:gravity="center_vertical|center_horizontal"/>
+
+        <EditText
+            android:id="@+id/customEditText4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="*"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:gravity="center_vertical|center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextContainer"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/validateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
+
+        <Button
+            android:id="@+id/forgetPinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget Pin"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

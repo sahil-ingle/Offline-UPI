@@ -23,5 +23,7 @@
         <string name="pay">செலுத்து</string>
         <string name="paste_here">இங்கே சேர்க்க</string>
         <string name="search">தேடு</string>
+    <string name="reset_pin">பின் மீட்டமை</string>
+
 
 </resources>

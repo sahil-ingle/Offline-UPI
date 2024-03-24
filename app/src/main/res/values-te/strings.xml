@@ -23,5 +23,7 @@
         <string name="pay">చెల్లింపు</string>
         <string name="paste_here">ఇక్కడ పేస్ట్ చేయండి</string>
         <string name="search">వెతుకు</string>
+    <string name="reset_pin">పిన్ రీసెట్ చేయండి</string>
+
 
 </resources>

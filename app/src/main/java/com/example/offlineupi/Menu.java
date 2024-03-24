@@ -127,7 +127,7 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
                 break;
             case 4:
                 selectedLang = "*5#";
-                lang = "ka";
+                lang = "kn";
                 break;
             case 5:
                 selectedLang = "*6#";
@@ -176,6 +176,11 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     public void onEditInfoClick(View view){
         Intent i = new Intent(Menu.this, RegisterPage.class);
+        startActivity(i);
+    }
+
+    public void onResetPinClick(View view){
+        Intent i = new Intent(Menu.this, useOfSecurityQuestion.class);
         startActivity(i);
     }
 

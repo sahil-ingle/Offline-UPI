@@ -42,7 +42,7 @@ public class RegisterPage extends AppCompatActivity {
 
                     // Move to next activity
                     // For example:
-                    startActivity(new Intent(RegisterPage.this, MainActivity.class));
+                    startActivity(new Intent(RegisterPage.this, SetPinActivity.class));
 
                 }
 
