@@ -39,8 +39,11 @@
                 android:id="@+id/myName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:padding="5dp"
+                android:drawablePadding="15dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Sahil Ingle"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 app:drawableStartCompat="@drawable/ic_profile" />
@@ -50,7 +53,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:drawablePadding="10dp"
                 android:padding="5dp"
+                android:text="9999999999"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 app:drawableLeftCompat="@drawable/ic_call" />
@@ -60,9 +65,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:drawablePadding="10dp"
                 android:padding="5dp"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
+                android:text="example@upi"
                 app:drawableLeftCompat="@drawable/ic_upi" />
 
             <LinearLayout

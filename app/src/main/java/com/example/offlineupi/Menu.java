@@ -57,7 +57,7 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
         if (upiId.isEmpty()) {
             // Set default value if UPI ID is empty
-            upiId = "Enter UPI id";
+            upiId = "Enter UPI Id";
         }
 
         binding.myName.setText(name);
