@@ -6,26 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".toPhone">
 
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="321dp"
-        android:layout_height="65dp"
-        android:hint="@string/enter_phone_number"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/amount"
-        android:layout_width="321dp"
-        android:layout_height="65dp"
+    <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
+        android:hint="@string/enter_phone_number"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="@style/Rounded">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
         android:hint="@string/enter_amount"
-        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/buttonPay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/Rounded">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/buttonPay"

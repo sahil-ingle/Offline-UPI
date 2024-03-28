@@ -57,5 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextAnswer3"
         android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/btnColor"
         android:text="validation"/>
 </RelativeLayout>

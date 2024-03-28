@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:backgroundTint="#0288D1"
+                    android:backgroundTint="@color/btnColor"
                     android:onClick="onEditInfoClick"
                     android:text="@string/edit_info" />
 
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:backgroundTint="#0288D1"
+                    android:backgroundTint="@color/btnColor"
                     android:onClick="onResetPinClick"
                     android:text="@string/reset_pin" />
 
@@ -178,7 +178,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="#0288D1"/>
+        android:backgroundTint="@color/btnColor"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

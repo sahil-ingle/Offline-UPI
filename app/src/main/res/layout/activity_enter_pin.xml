@@ -14,48 +14,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginBottom="16dp"
         android:weightSum="4">
 
-        <EditText
-            android:id="@+id/customEditText1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="*"
-            android:inputType="numberPassword"
-            android:maxLength="1"
-            android:gravity="center_vertical|center_horizontal"/>
 
-        <EditText
-            android:id="@+id/customEditText2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="*"
-            android:inputType="numberPassword"
-            android:maxLength="1"
-            android:gravity="center_vertical|center_horizontal"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp">
 
-        <EditText
-            android:id="@+id/customEditText3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="*"
-            android:inputType="numberPassword"
-            android:maxLength="1"
-            android:gravity="center_vertical|center_horizontal"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+                android:maxLength="1"
+                android:gravity="center_vertical|center_horizontal"/>
 
-        <EditText
-            android:id="@+id/customEditText4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="*"
-            android:inputType="numberPassword"
-            android:maxLength="1"
-            android:gravity="center_vertical|center_horizontal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customEditText2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+                android:maxLength="1"
+                android:gravity="center_vertical|center_horizontal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customEditText3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+                android:maxLength="1"
+                android:gravity="center_vertical|center_horizontal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customEditText4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inputType="numberPassword"
+                android:maxLength="1"
+                android:gravity="center_vertical|center_horizontal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -70,14 +102,16 @@
             android:id="@+id/validateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"/>
+            android:text="@string/submit"
+            android:backgroundTint="@color/btnColor"/>
 
         <Button
             android:id="@+id/forgetPinButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forget Pin"
-            android:layout_marginStart="16dp"/>
+            android:text="@string/forget_pin"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/btnColor"/>
 
     </LinearLayout>
 

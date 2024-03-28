@@ -36,7 +36,7 @@
         android:layout_marginBottom="164dp"
         android:text="@string/continue_next"
         android:textSize="25dp"
-        android:backgroundTint="#0288D1"
+        android:backgroundTint="@color/btnColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -38,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
+        android:backgroundTint="@color/btnColor"
         android:layout_below="@id/editTextConfirmPin"/>
 
 </RelativeLayout>

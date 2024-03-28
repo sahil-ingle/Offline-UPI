@@ -23,5 +23,7 @@
     <string name="paste_here">Paste Here</string>
     <string name="search">Search</string>
     <string name="reset_pin">Reset Pin</string>
+    <string name="submit">Submit</string>
+    <string name="forget_pin">Forget Pin</string>
 
 </resources>
