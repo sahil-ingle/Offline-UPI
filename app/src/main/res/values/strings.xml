@@ -25,5 +25,7 @@
     <string name="reset_pin">Reset Pin</string>
     <string name="submit">Submit</string>
     <string name="forget_pin">Forget Pin</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="set_pin">Set PIN</string>
 
 </resources>

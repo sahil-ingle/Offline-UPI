@@ -3,9 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:padding="16dp"
     tools:context=".EnterPinActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_pin"
+                android:textSize="50sp" />
+
+        </LinearLayout>
+
+
 
     <!-- Other layout elements for entering and confirming PIN -->
 
@@ -24,7 +46,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:padding="10dp">
+            android:padding="10dp"
+            app:shapeAppearance="@style/RoundedSmall">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/customEditText1"
@@ -41,7 +64,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:padding="10dp">
+            android:padding="10dp"
+            app:shapeAppearance="@style/RoundedSmall">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/customEditText2"
@@ -59,7 +83,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:padding="10dp">
+            android:padding="10dp"
+            app:shapeAppearance="@style/RoundedSmall">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/customEditText3"
@@ -76,7 +101,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:padding="10dp">
+            android:padding="10dp"
+            app:shapeAppearance="@style/RoundedSmall">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/customEditText4"
@@ -96,7 +122,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextContainer"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        >
 
         <Button
             android:id="@+id/validateButton"
@@ -112,6 +139,8 @@
             android:text="@string/forget_pin"
             android:layout_marginStart="16dp"
             android:backgroundTint="@color/btnColor"/>
+
+    </LinearLayout>
 
     </LinearLayout>
 
