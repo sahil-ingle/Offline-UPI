@@ -112,8 +112,8 @@
 
                 <!-- Bank Image -->
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:onClick="onPhoneClick"
                     android:src="@drawable/phone_circle" />
@@ -140,8 +140,8 @@
 
                 <!-- Scanner Image -->
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:onClick="onScannerClick"
                     android:src="@drawable/qr_circle" />
@@ -176,8 +176,8 @@
 
                 <!-- Phone Image -->
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:onClick="onBankClick"
                     android:src="@drawable/bank_circle" />
@@ -204,8 +204,8 @@
 
                 <!-- UPI ID Image -->
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:onClick="onUPIClick"
                     android:src="@drawable/upi_circle" />
