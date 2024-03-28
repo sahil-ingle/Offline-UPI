@@ -17,15 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <TextView
             android:id="@+id/backBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:background="@drawable/back_arrow"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/back_arrow"
-            android:gravity="center"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            android:gravity="center"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,7 +125,7 @@
                 android:id="@+id/changeBankAccountBtn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:drawablePadding="10dp"
                 android:gravity="start|center"
                 android:onClick="onChangeBankAccount"
