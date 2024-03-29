@@ -1,6 +1,7 @@
 package com.example.offlineupi;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,9 @@ public class MainActivity extends Menu{
     private static final String Balance = "*3#";
     private static final String sendMoney = "*1";
     private static final String toBankAccount = "*5#";
+
+    private static final String transaction = "*6";
+    private static final String recentTrancation = "*1#";
 
     private static final String toUPIid = "*3#";
 
@@ -168,10 +173,9 @@ public class MainActivity extends Menu{
     }
 
     public void onRecentTransactionClick(View view){
-        Toast.makeText(this,"Adding trancation history option", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(Intent.ACTION_CALL);
-//        intent.setData(Uri.parse("tel:" + Uri.encode(UID + sendMoney + toBankAccount)));
-//        startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + Uri.encode(UID + transaction + recentTrancation)));
+        startActivity(intent);
     }
 
     public void onCheckBalanceClick(View view){
@@ -179,6 +183,8 @@ public class MainActivity extends Menu{
         intent.setData(Uri.parse("tel:" + Uri.encode(UID + Balance)));
         startActivity(intent);
     }
+
+
 
     public void setLocale(String Lang) {
         Locale newLocale = new Locale(Lang);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -14,10 +15,13 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.os.Handler;
 import android.util.SparseArray;
+import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -135,7 +139,7 @@ public class ScanQRActivity extends AppCompatActivity {
                             Intent resultIntent = new Intent();
                             resultIntent.putExtra("intentData", intentData);
                             setResult(Activity.RESULT_OK, resultIntent);
-                            finish(); // Close the current activity and return to MainActivity
+                            finish();// Close the current activity and return to MainActivity
                         }
                     });
                 }
