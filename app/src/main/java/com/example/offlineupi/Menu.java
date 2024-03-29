@@ -217,8 +217,6 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
     private void logout() {
-        // Code to clear user data (e.g., preferences, cached files, databases)
-        // Example: Clear shared preferences
         SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
@@ -229,15 +227,12 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         usereditor.clear();
         usereditor.apply();
 
-        // Clear login preferences
         SharedPreferences loginPreferences = getSharedPreferences("login_state", Context.MODE_PRIVATE);
         SharedPreferences.Editor loginEditor = loginPreferences.edit();
         loginEditor.clear();
         loginEditor.apply();
 
-        // Inform the user that data has been cleared
         Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-
 
         Intent i = new Intent(Menu.this,getStartedActivity.class);
         startActivity(i);
