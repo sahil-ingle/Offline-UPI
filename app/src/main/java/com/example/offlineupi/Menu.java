@@ -95,6 +95,8 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         binding.logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearUserData();
+
                 Toast.makeText(Menu.this, "Coming soon..", Toast.LENGTH_SHORT).show();
             }
         });
@@ -188,6 +190,33 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     public void onResetPinClick(View view){
         Intent i = new Intent(Menu.this, useOfSecurityQuestion.class);
+        startActivity(i);
+    }
+
+    private void clearUserData() {
+        // Code to clear user data (e.g., preferences, cached files, databases)
+        // Example: Clear shared preferences
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+
+        SharedPreferences userpreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor usereditor = userpreferences.edit();
+        usereditor.clear();
+        usereditor.apply();
+
+        // Clear login preferences
+        SharedPreferences loginPreferences = getSharedPreferences("login_state", Context.MODE_PRIVATE);
+        SharedPreferences.Editor loginEditor = loginPreferences.edit();
+        loginEditor.clear();
+        loginEditor.apply();
+
+        // Inform the user that data has been cleared
+        Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+
+
+        Intent i = new Intent(Menu.this,getStartedActivity.class);
         startActivity(i);
     }
 
