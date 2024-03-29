@@ -21,6 +21,14 @@ public class RegisterPage extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+
+        SharedPreferences prefs = getSharedPreferences("login_state", MODE_PRIVATE);
+        boolean isLoggedIn  = prefs.getBoolean("isLogin", false );
+
+        if(isLoggedIn){
+            binding.textView.setText(R.string.edit_info);
+        }
+
         binding.RegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +50,13 @@ public class RegisterPage extends AppCompatActivity {
 
                     // Move to next activity
                     // For example:
-                    startActivity(new Intent(RegisterPage.this, SetPinActivity.class));
+
+
+                    if (!isLoggedIn) {
+                        startActivity(new Intent(RegisterPage.this, SetPinActivity.class));
+                    } else {
+                        startActivity(new Intent(RegisterPage.this, Menu.class));
+                    }
 
                 }
 

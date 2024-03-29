@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -23,12 +22,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-import com.example.offlineupi.databinding.ActivityMenuBinding;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-
-
-
 
 
 
@@ -150,12 +145,6 @@ public class MainActivity extends Menu{
     }
 
 
-    public void onRegisterClick(View view) {
-
-        Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:" + Uri.encode("*99#")));
-        startActivity(intent);
-    }
 
     public void onScannerClick(View view){
         Intent i = new Intent(MainActivity.this, ScanQRActivity.class);
@@ -176,6 +165,13 @@ public class MainActivity extends Menu{
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + Uri.encode(UID + sendMoney + toBankAccount)));
         startActivity(intent);
+    }
+
+    public void onRecentTransactionClick(View view){
+        Toast.makeText(this,"Adding trancation history option", Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(Intent.ACTION_CALL);
+//        intent.setData(Uri.parse("tel:" + Uri.encode(UID + sendMoney + toBankAccount)));
+//        startActivity(intent);
     }
 
     public void onCheckBalanceClick(View view){
