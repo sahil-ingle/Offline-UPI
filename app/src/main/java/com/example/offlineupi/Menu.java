@@ -1,6 +1,7 @@
 package com.example.offlineupi;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.offlineupi.databinding.ActivityMenuBinding;
@@ -95,9 +97,8 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         binding.logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearUserData();
+                showLogoutConfirmationDialog();
 
-                Toast.makeText(Menu.this, "Coming soon..", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -193,7 +194,29 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         startActivity(i);
     }
 
-    private void clearUserData() {
+    private void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User clicked Yes, logout
+                logout();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User clicked No, do nothing
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void logout() {
         // Code to clear user data (e.g., preferences, cached files, databases)
         // Example: Clear shared preferences
         SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
