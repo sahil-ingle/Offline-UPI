@@ -53,7 +53,7 @@
         android:layout_below="@id/editTextConfirmPin"
         android:layout_marginBottom="284dp"
         android:backgroundTint="@color/btnColor"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp" />
 
