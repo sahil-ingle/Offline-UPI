@@ -110,7 +110,7 @@ public class MainActivity extends Menu{
 
     //root checker
     public boolean isDeviceRooted() {
-        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3() || isGooglePlayServicesAvailable();
+        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3() || isGooglePlayServicesAvailable() || checkCustomRecovery();
     }
 
     private boolean checkRootMethod1() {
@@ -141,8 +141,25 @@ public class MainActivity extends Menu{
         return availability != ConnectionResult.SUCCESS;
     }
 
+    private static boolean checkCustomRecovery() {
+        // List of common custom recovery filenames
+        String[] customRecoveryFiles = {
+                "/proc/last_kmsg",  // File often modified by custom recoveries
+                "/etc/recovery.fstab" // Another file that may indicate a custom recovery
+                // Add more filenames as needed
+        };
 
-    //root checker42
+        for (String filename : customRecoveryFiles) {
+            if (new File(filename).exists()) {
+                return true; // Found a file associated with custom recovery
+
+            }
+        }
+
+        return false; // No file associated with custom recovery found
+    }
+
+    //root checker4
 
     public void onMenuClick(View view){
         Intent intent = new Intent(MainActivity.this, Menu.class);
