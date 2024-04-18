@@ -66,7 +66,8 @@ public class MainActivity extends Menu{
         String savedLang = sharedPref.getString(LANG_KEY, "en");
 
         if (isDeviceRooted()) {
-            finishAffinity();
+//            finishAffinity();
+              Toast.makeText(this, "Your device lack the security to run this app", Toast.LENGTH_SHORT).show();
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
