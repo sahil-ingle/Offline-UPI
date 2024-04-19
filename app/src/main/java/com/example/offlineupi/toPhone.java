@@ -1,12 +1,15 @@
 package com.example.offlineupi;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -32,6 +35,9 @@ public class toPhone extends AppCompatActivity {
 
     public boolean isFirstTime = true;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,29 @@ public class toPhone extends AppCompatActivity {
 
         String myValue = Menu.getMyString();
         setLocale(myValue);
+
+        SharedPreferences prefs = getSharedPreferences("contact_number", MODE_PRIVATE);
+        String contactNumber = prefs.getString("contactNumber", "" );
+
+        if(contactNumber != null){
+            String contactNumber2 = contactNumber.replaceAll("[^0-9]", "");
+
+            if (contactNumber2.length() > 10 && contactNumber2.startsWith("91")) {
+                contactNumber2 = contactNumber2.substring(2); // Remove "+91"
+            }
+
+            binding.phoneNumber.setText(contactNumber2);
+            SharedPreferences preferences = getSharedPreferences("contact_number", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(toPhone.this, MainActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -53,6 +82,11 @@ public class toPhone extends AppCompatActivity {
             recreate();
 
         }
+    }
+
+    public void onContactsClick(View view){
+        Intent i = new Intent(this, ContactsActivity.class);
+        startActivity(i); // Start ContactsActivity for result
     }
 
     public void onPayButtonClick(View view) {
@@ -98,6 +132,7 @@ public class toPhone extends AppCompatActivity {
         intent.setData(Uri.parse("tel:" + Uri.encode(dial)));
         startActivity(intent);
     }
+
 
     public void setLocale(String Lang) {
         Locale newLocale = new Locale(Lang);

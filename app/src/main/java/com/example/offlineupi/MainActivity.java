@@ -66,8 +66,8 @@ public class MainActivity extends Menu{
         String savedLang = sharedPref.getString(LANG_KEY, "en");
 
         if (isDeviceRooted()) {
-//            finishAffinity();
-              Toast.makeText(this, "Your device lack the security to run this app", Toast.LENGTH_SHORT).show();
+            finishAffinity();
+            Toast.makeText(this, "Your device lack the security to run this app", Toast.LENGTH_SHORT).show();
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -111,7 +111,7 @@ public class MainActivity extends Menu{
 
     //root checker
     public boolean isDeviceRooted() {
-        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3() || isGooglePlayServicesAvailable() || checkCustomRecovery();
+        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3() || isGooglePlayServicesAvailable();
     }
 
     private boolean checkRootMethod1() {
