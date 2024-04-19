@@ -74,6 +74,7 @@ public class ContactsActivity extends AppCompatActivity{
             editor.apply();
             Intent i = new Intent(ContactsActivity.this, toPhone.class);
             startActivity(i);
+            overridePendingTransition(0, 0);
         });
     }
 
