@@ -12,6 +12,7 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -41,6 +42,18 @@ public class ContactsActivity extends AppCompatActivity{
 
         listViewContacts = findViewById(R.id.listViewContacts);
         contactList = new ArrayList<>();
+
+        SearchView searchView = findViewById(R.id.searchView);
+
+        // Request focus on the SearchView
+        searchView.requestFocus();
+
+        // Show the keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        }
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
