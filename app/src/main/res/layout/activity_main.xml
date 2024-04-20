@@ -266,6 +266,7 @@
                 android:text="@string/see_transaction_history"
                 android:textSize="17sp"
                 android:gravity="center"
+                android:layout_marginEnd="15dp"
                 android:textColor="@android:color/black"
                 android:onClick="onRecentTransactionClick"/>
         </LinearLayout>
@@ -293,6 +294,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/check_bank_balance"
                 android:textSize="17sp"
+                android:layout_marginEnd="15dp"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:onClick="onCheckBalanceClick"/>
@@ -303,197 +305,10 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-
-<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent">-->
-<!--<RelativeLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content">-->
-
-<!--    &lt;!&ndash; Search bar with profile icon at the top &ndash;&gt;-->
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/search_bar_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="16dp">-->
-
-<!--        &lt;!&ndash; Profile icon &ndash;&gt;-->
-<!--        <ImageView-->
-<!--            android:id="@+id/menu"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:src="@drawable/ellipse_3"-->
-<!--            android:onClick="onMenuClick"/>-->
-
-<!--        &lt;!&ndash; Search bar (assuming EditText for simplicity) &ndash;&gt;-->
-<!--        <EditText-->
-<!--            android:id="@+id/search_bar"-->
-<!--            android:layout_width="326dp"-->
-<!--            android:layout_height="41dp"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_marginEnd="5dp"-->
-<!--            android:layout_toStartOf="@id/menu"-->
-<!--            android:background="@drawable/rounded_search_bar_background"-->
-<!--            android:hint="@string/search"-->
-<!--            android:paddingStart="8dp"-->
-<!--            android:paddingEnd="8dp"-->
-<!--            android:textColorHint="#8A000000" />-->
-
-<!--    </RelativeLayout>-->
-
-<!--    &lt;!&ndash; Image below the search bar &ndash;&gt;-->
-<!--    <ImageView-->
-<!--        android:id="@+id/image"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:src="@drawable/image_2"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_below="@id/search_bar_layout" />-->
-
-<!--    &lt;!&ndash; 2*2 grid of icons with text below them &ndash;&gt;-->
-<!--    <GridLayout-->
-<!--        android:id="@+id/gridLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/image"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_marginBottom="25dp"-->
-<!--        android:columnCount="2"-->
-<!--        android:padding="20dp"-->
-<!--        android:rowCount="2">-->
-
-<!--        &lt;!&ndash; Icon 1 &ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/toPhone"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_columnWeight="1"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="15dp">-->
-
-<!--            <ImageView-->
-<!--                android:onClick="onPhoneClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:src="@drawable/image_1" />-->
-
-<!--            <TextView-->
-<!--                android:onClick="onPhoneClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="@string/to_mobile_or_contact" />-->
-<!--        </LinearLayout>-->
-
-<!--        &lt;!&ndash; Icon 2 &ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/toUPI"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_columnWeight="1"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="15dp">-->
-
-<!--            <ImageView-->
-<!--                android:onClick="onUPIClick"-->
-<!--                android:layout_width="57dp"-->
-<!--                android:layout_height="57dp"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:src="@drawable/image_2" />-->
-
-<!--            <TextView-->
-<!--                android:onClick="onUPIClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="@string/upi_transfer" />-->
-<!--        </LinearLayout>-->
-
-<!--        &lt;!&ndash; Icon 3 &ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/toBank"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_columnWeight="1"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="15dp">-->
-
-<!--            <ImageView-->
-<!--                android:onClick="onBankClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:src="@drawable/image_3" />-->
-
-<!--            <TextView-->
-<!--                android:onClick="onBankClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="@string/bank_transfer" />-->
-<!--        </LinearLayout>-->
-
-<!--        &lt;!&ndash; Icon 4 &ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_columnWeight="1"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="15dp">-->
-
-<!--            <ImageView-->
-<!--                android:onClick="onScannerClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:src="@drawable/image_4" />-->
-
-<!--            <TextView-->
-<!--                android:onClick="onScannerClick"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="@string/scan_pay" />-->
-<!--        </LinearLayout>-->
-
-<!--    </GridLayout>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/UPI_id_showing"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/gridLayout"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginEnd="0dp"-->
-<!--        android:text="@string/see_transaction_history"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="25dp" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/checkBalance"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/UPI_id_showing"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginBottom="50dp"-->
-<!--        android:layout_marginEnd="0dp"-->
-<!--        android:onClick="onCheckBalanceClick"-->
-<!--        android:text="@string/check_bank_balance"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="25dp" />-->
 
 
-<!--</RelativeLayout>-->
 
-<!--</ScrollView>-->
+
+
+
+

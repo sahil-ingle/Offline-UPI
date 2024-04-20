@@ -8,7 +8,6 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-
         android:id="@+id/textInputLayout5"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="350dp"
@@ -18,26 +17,20 @@
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/Rounded">
+        app:shapeAppearance="@style/Rounded"
+        app:startIconDrawable="@drawable/ic_call">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="number" />
+            android:inputType="number"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/contactButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contacts"
-        android:onClick="onContactsClick"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -51,7 +44,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/Rounded">
+        app:shapeAppearance="@style/Rounded"
+        app:startIconDrawable="@drawable/ic_rupees">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount"
@@ -60,6 +54,23 @@
             android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/contactButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#1976D2"
+        android:onClick="onContactsClick"
+        android:padding="13dp"
+        android:text="@string/select_from_contacts"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 
     <Button
