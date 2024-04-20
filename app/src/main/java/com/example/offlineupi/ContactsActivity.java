@@ -30,9 +30,9 @@ public class ContactsActivity extends AppCompatActivity{
     private static final int REQUEST_READ_CONTACTS = 1;
     private ArrayList<String> contactList;
     private ListView listViewContacts;
+    private ArrayList<String> filteredContacts; // Variable to hold filtered contacts
 
     public String selectedContactNumber;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +42,7 @@ public class ContactsActivity extends AppCompatActivity{
 
         listViewContacts = findViewById(R.id.listViewContacts);
         contactList = new ArrayList<>();
+        filteredContacts = new ArrayList<>(); // Initialize filteredContacts
 
         SearchView searchView = findViewById(R.id.searchView);
 
@@ -65,17 +66,27 @@ public class ContactsActivity extends AppCompatActivity{
 
         listViewContacts.setOnItemClickListener((parent, view, position, id) -> {
             // Extract contact number from the clicked item
-            String[] contactInfo = contactList.get(position).split(": ");
+            String[] contactInfo;
+            if (filteredContacts != null && filteredContacts.size() > position) {
+                contactInfo = filteredContacts.get(position).split(": ");
+            } else {
+                contactInfo = contactList.get(position).split(": ");
+            }
             selectedContactNumber = contactInfo[1];
             Toast.makeText(ContactsActivity.this, "Selected contact number: " + selectedContactNumber, Toast.LENGTH_SHORT).show();
+
+            // Store the selected contact number using SharedPreferences
             SharedPreferences prefs = getSharedPreferences("contact_number", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("contactNumber", selectedContactNumber);
             editor.apply();
+
+            // Start the new activity
             Intent i = new Intent(ContactsActivity.this, toPhone.class);
             startActivity(i);
             overridePendingTransition(0, 0);
         });
+
     }
 
     private void loadContacts() {
@@ -98,6 +109,7 @@ public class ContactsActivity extends AppCompatActivity{
             contactList.clear(); // Clear previous list
 
             contactList.addAll(tempContactList);
+            filteredContacts.addAll(contactList); // Initially, filteredContacts will have all contacts
             updateAdapter(contactList); // Update adapter with all contacts
         } else {
             Toast.makeText(this, "No contacts found.", Toast.LENGTH_SHORT).show();
@@ -119,7 +131,7 @@ public class ContactsActivity extends AppCompatActivity{
     }
 
     private void filterContacts(String query) {
-        ArrayList<String> filteredContacts = new ArrayList<>();
+        filteredContacts.clear(); // Clear previous filtered contacts
         for (String contact : contactList) {
             if (contact.toLowerCase().contains(query.toLowerCase())) {
                 filteredContacts.add(contact);
@@ -150,9 +162,6 @@ public class ContactsActivity extends AppCompatActivity{
         listViewContacts.setAdapter(adapter);
     }
 
-
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -165,6 +174,4 @@ public class ContactsActivity extends AppCompatActivity{
             }
         }
     }
-
-
 }
