@@ -92,26 +92,42 @@ public class toPhone extends AppCompatActivity {
     public void onPayButtonClick(View view) {
         String phoneNumber = binding.phoneNumber.getText().toString().trim();
         String amount = binding.amount.getText().toString().trim();
-        String dialString = UID + sendMoney + toMobile + "*" + phoneNumber + "*" + amount + reCheck;
-        if (!phoneNumber.isEmpty() && !amount.isEmpty()) {
-            // Check for CALL_PHONE permission
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                // If permission is granted, make the call
-                dialPhoneNumber(dialString);
-            } else {
-                // Request permission to make the call
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
-            }
-        } else {
-            if (phoneNumber.isEmpty()){
+
+        if (phoneNumber.isEmpty() || amount.isEmpty()) {
+            if (phoneNumber.isEmpty()) {
                 Toast.makeText(this, "Please enter a phone number.", Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 Toast.makeText(this, "Please enter the amount", Toast.LENGTH_SHORT).show();
             }
+        } else if (phoneNumber.length() != 10) {
+            Toast.makeText(this, "Phone number should be 10 digits.", Toast.LENGTH_SHORT).show();
+        } else {
+            try {
+                double amountValue = Double.parseDouble(amount);
+                if (amountValue <= 0) {
+                    Toast.makeText(this, "Amount should be greater than 0", Toast.LENGTH_SHORT).show();
+                }else if (amountValue > 5000){
+                    Toast.makeText(this, "Amount should be less than 5000.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // Construct the dial string
+                    String dialString = UID + sendMoney + toMobile + "*" + phoneNumber + "*" + amount + reCheck;
 
+                    // Check for CALL_PHONE permission
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                        // If permission is granted, make the call
+                        dialPhoneNumber(dialString);
+                    } else {
+                        // Request permission to make the call
+                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+                    }
+                }
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Invalid amount format.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

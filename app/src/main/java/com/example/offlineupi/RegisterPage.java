@@ -51,8 +51,11 @@ public class RegisterPage extends AppCompatActivity {
 
                 if(myName.isEmpty() || myPhone.isEmpty()){
                     Toast.makeText(RegisterPage.this, "Fill all the Mandatory Info..", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else if (!myPhone.matches("\\d{10}")) {
+                    Toast.makeText(RegisterPage.this, "Phone number should be a 10-digit number", Toast.LENGTH_SHORT).show();
+                } else if (!myUPIid.isEmpty() && (!myUPIid.contains("@") || myUPIid.startsWith("@") || myUPIid.endsWith("@"))) {
+                    Toast.makeText(RegisterPage.this, "Invalid UPI ID", Toast.LENGTH_SHORT).show();
+                }else {
                     SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("myName", myName);

@@ -1,7 +1,12 @@
 package com.example.offlineupi;
 
+import static com.example.offlineupi.Menu.LANG_KEY;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -18,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.offlineupi.EncryptionHelper;
 import com.example.offlineupi.MainActivity;
 
+import java.util.Locale;
+
 public class EnterPinActivity extends AppCompatActivity {
 
     private EditText pinEditText1, pinEditText2, pinEditText3, pinEditText4;
@@ -28,11 +35,18 @@ public class EnterPinActivity extends AppCompatActivity {
     String fourth = "";
     Integer variableCounter = 1;
 
+    public boolean isFirstTime = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_pin);
+
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String savedLang = sharedPref.getString(LANG_KEY, "en");
+
+        setLocale(savedLang);
 
         pinEditText1 = findViewById(R.id.customEditText1);
         pinEditText2 = findViewById(R.id.customEditText2);
@@ -61,8 +75,14 @@ public class EnterPinActivity extends AppCompatActivity {
         validatePin();
 
 
-
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
+    }
+
 
     private boolean isTextChangedByWatcher = false;
 
@@ -153,10 +173,6 @@ public class EnterPinActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     private void validatePin() {
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String encryptedPin = preferences.getString("PIN", "");
@@ -186,5 +202,21 @@ public class EnterPinActivity extends AppCompatActivity {
                 Toast.makeText(EnterPinActivity.this, "Error decrypting PIN", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void setLocale(String Lang) {
+        Locale newLocale = new Locale(Lang);
+        Locale currentLocale = getResources().getConfiguration().locale;
+
+        if (!newLocale.equals(currentLocale)) {
+            Locale.setDefault(newLocale);
+            Resources resources = getResources();
+            Configuration configuration = resources.getConfiguration();
+            configuration.setLocale(newLocale);
+            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+            // Restart the activity to apply the language change
+            recreate();
+        }
     }
 }
