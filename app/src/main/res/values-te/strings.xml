@@ -23,7 +23,14 @@
         <string name="pay">చెల్లింపు</string>
         <string name="paste_here">ఇక్కడ పేస్ట్ చేయండి</string>
         <string name="search">వెతుకు</string>
-    <string name="reset_pin">పిన్ రీసెట్ చేయండి</string>
+        <string name="reset_pin">పిన్ రీసెట్ చేయండి</string>
+        <string name="submit">సబ్మిట్ చేయండి</string>
+        <string name="forget_pin">పిన్ మరింత చేయండి</string>
+        <string name="enter_pin">పిన్ నమోదు చేయండి</string>
+        <string name="set_pin">పిన్ సెట్ చేయండి</string>
+        <string name="select_from_contacts">కాంటాక్ట్ల నుండి ఎంచుకోండి</string>
+        <string name="scan_qr_code">క్యూఆర్ కోడ్ స్క్యాన్ చేయండి</string>
+        <string name="back">వెనకకు</string>
 
 
 </resources>

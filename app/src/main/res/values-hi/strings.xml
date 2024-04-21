@@ -23,7 +23,14 @@
         <string name="pay">भुगतान करें</string>
         <string name="paste_here">यहाँ पेस्ट करें</string>
         <string name="search">खोजें</string>
-    <string name="reset_pin">पिन रीसेट करें</string>
+        <string name="reset_pin">पिन रीसेट करें</string>
+        <string name="submit">प्रस्तुत</string>
+        <string name="forget_pin">पिन भूल जाएं</string>
+        <string name="enter_pin">पिन दर्ज करें</string>
+        <string name="set_pin">पिन सेट करें</string>
+        <string name="select_from_contacts">संपर्कों से चयन करें</string>
+        <string name="scan_qr_code">क्यूआर कोड स्कैन करें</string>
+        <string name="back">वापस</string>
 
 
 </resources>

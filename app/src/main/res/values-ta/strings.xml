@@ -23,7 +23,14 @@
         <string name="pay">செலுத்து</string>
         <string name="paste_here">இங்கே சேர்க்க</string>
         <string name="search">தேடு</string>
-    <string name="reset_pin">பின் மீட்டமை</string>
+        <string name="reset_pin">பின் மீட்டமை</string>
+        <string name="submit">சமர்ப்பிக்கவும்</string>
+        <string name="forget_pin">பின் மறந்துவிடு</string>
+        <string name="enter_pin">பின் உள்ளிடவும்</string>
+        <string name="set_pin">பின் அமை</string>
+        <string name="select_from_contacts">தொடர்புகளில் இருந்து தேர்ந்தெடுக்கவும்</string>
+        <string name="scan_qr_code">கியூஆர் குறியீடு அடிக்கவும்</string>
+        <string name="back">பின்செல்</string>
 
 
 </resources>

@@ -60,8 +60,7 @@ public class ScanQRActivity extends AppCompatActivity {
 
     }
 
-    private void initialiseDetectorsAndSources() {
-        Toast.makeText(getApplicationContext(), "Camera is on", Toast.LENGTH_SHORT).show();
+    private void initialiseDetectorsAndSources() {;
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
                 .build();
@@ -109,7 +108,7 @@ public class ScanQRActivity extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-                Toast.makeText(getApplicationContext(), "Scan stopped", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -124,7 +123,6 @@ public class ScanQRActivity extends AppCompatActivity {
 
                             String trimData = trimString(intentData);
 
-                            Toast.makeText(ScanQRActivity.this,trimData,Toast.LENGTH_SHORT).show();
                             copyToClipboard(trimData);
 
                             if (ContextCompat.checkSelfPermission(ScanQRActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
