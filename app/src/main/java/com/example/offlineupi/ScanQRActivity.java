@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
@@ -15,13 +14,9 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.os.Handler;
 import android.util.SparseArray;
-import android.view.Gravity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,12 +31,11 @@ public class ScanQRActivity extends AppCompatActivity {
 
     private static final int REQUEST_PHONE_CALL = 1;
     private static final String UID = "*99";
-    private static String sendMoney = "*1";
-    private static String toUPI = "*3#";
+    private static final String sendMoney = "*1";
+    private static final String toUPI = "*3#";
 
     SurfaceView surfaceView;
     TextView txtBarcodeValue;
-    private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     String intentData = "";
@@ -60,8 +54,8 @@ public class ScanQRActivity extends AppCompatActivity {
 
     }
 
-    private void initialiseDetectorsAndSources() {;
-        barcodeDetector = new BarcodeDetector.Builder(this)
+    private void initialiseDetectorsAndSources() {
+        BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
                 .build();
 
@@ -97,12 +91,9 @@ public class ScanQRActivity extends AppCompatActivity {
         });
 
         Button btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle back button click here
-                onBackPressed();
-            }
+        btnBack.setOnClickListener(v -> {
+            // Handle back button click here
+            onBackPressed();
         });
 
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
@@ -115,30 +106,27 @@ public class ScanQRActivity extends AppCompatActivity {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
                 if (barcodes.size() != 0) {
-                    txtBarcodeValue.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intentData = barcodes.valueAt(0).displayValue;
-                            txtBarcodeValue.setText(intentData);
+                    txtBarcodeValue.post(() -> {
+                        intentData = barcodes.valueAt(0).displayValue;
+                        txtBarcodeValue.setText(intentData);
 
-                            String trimData = trimString(intentData);
+                        String trimData = trimString(intentData);
 
-                            copyToClipboard(trimData);
+                        copyToClipboard(trimData);
 
-                            if (ContextCompat.checkSelfPermission(ScanQRActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                                // If permission is granted, make the call
-                                dialPhoneNumber();
-                            } else {
-                                // Request permission to make the call
-                                ActivityCompat.requestPermissions(ScanQRActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
-                            }
-
-                            // Pass intentData back to MainActivity
-                            Intent resultIntent = new Intent();
-                            resultIntent.putExtra("intentData", intentData);
-                            setResult(Activity.RESULT_OK, resultIntent);
-                            finish();// Close the current activity and return to MainActivity
+                        if (ContextCompat.checkSelfPermission(ScanQRActivity.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                            // If permission is granted, make the call
+                            dialPhoneNumber();
+                        } else {
+                            // Request permission to make the call
+                            ActivityCompat.requestPermissions(ScanQRActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
                         }
+
+                        // Pass intentData back to MainActivity
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra("intentData", intentData);
+                        setResult(Activity.RESULT_OK, resultIntent);
+                        finish();// Close the current activity and return to MainActivity
                     });
                 }
             }

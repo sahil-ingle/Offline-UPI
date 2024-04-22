@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.offlineupi.databinding.ActivityToBankAccountBinding;
-import com.example.offlineupi.databinding.ActivityToPhoneBinding;
 
 import java.util.Locale;
 
@@ -26,8 +25,8 @@ public class toBankAccount extends AppCompatActivity {
 
     private static final int REQUEST_PHONE_CALL = 1;
     private static final String UID = "*99";
-    private static String sendMoney = "*1";
-    private static String toBankAccount = "*5";
+    private static final String sendMoney = "*1";
+    private static final String toBankAccount = "*5";
 
     private static final String reCheck = "*1#";
 

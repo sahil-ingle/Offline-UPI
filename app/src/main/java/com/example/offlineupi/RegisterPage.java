@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -41,42 +40,39 @@ public class RegisterPage extends AppCompatActivity {
             binding.textView.setText(R.string.edit_info);
         }
 
-        binding.RegisterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.RegisterBtn.setOnClickListener(view1 -> {
 
-                String myName = binding.myName.getText().toString().trim();
-                String myPhone = binding.myPhone.getText().toString().trim();
-                String myUPIid = binding.myUPIid.getText().toString().trim();
+            String myName = binding.myName.getText().toString().trim();
+            String myPhone = binding.myPhone.getText().toString().trim();
+            String myUPIid = binding.myUPIid.getText().toString().trim();
 
-                if(myName.isEmpty() || myPhone.isEmpty()){
-                    Toast.makeText(RegisterPage.this, "Fill all the Mandatory Info..", Toast.LENGTH_SHORT).show();
-                } else if (!myPhone.matches("\\d{10}")) {
-                    Toast.makeText(RegisterPage.this, "Phone number should be a 10-digit number", Toast.LENGTH_SHORT).show();
-                } else if (!myUPIid.isEmpty() && (!myUPIid.contains("@") || myUPIid.startsWith("@") || myUPIid.endsWith("@"))) {
-                    Toast.makeText(RegisterPage.this, "Invalid UPI ID", Toast.LENGTH_SHORT).show();
-                }else {
-                    SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("myName", myName);
-                    editor.putString("myPhone", myPhone);
-                    editor.putString("myUPIid", myUPIid);
-                    editor.apply();
+            if(myName.isEmpty() || myPhone.isEmpty()){
+                Toast.makeText(RegisterPage.this, "Fill all the Mandatory Info..", Toast.LENGTH_SHORT).show();
+            } else if (!myPhone.matches("\\d{10}")) {
+                Toast.makeText(RegisterPage.this, "Phone number should be a 10-digit number", Toast.LENGTH_SHORT).show();
+            } else if (!myUPIid.isEmpty() && (!myUPIid.contains("@") || myUPIid.startsWith("@") || myUPIid.endsWith("@"))) {
+                Toast.makeText(RegisterPage.this, "Invalid UPI ID", Toast.LENGTH_SHORT).show();
+            }else {
+                SharedPreferences preferences = getSharedPreferences("UserData", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("myName", myName);
+                editor.putString("myPhone", myPhone);
+                editor.putString("myUPIid", myUPIid);
+                editor.apply();
 
-                    // Move to next activity
-                    // For example:
+                // Move to next activity
+                // For example:
 
 
-                    if (!isLoggedIn) {
-                        makeCall();
-                    } else {
-                        startActivity(new Intent(RegisterPage.this, Menu.class));
-                    }
-
+                if (!isLoggedIn) {
+                    makeCall();
+                } else {
+                    startActivity(new Intent(RegisterPage.this, Menu.class));
                 }
 
-
             }
+
+
         });
 
 
@@ -95,9 +91,9 @@ public class RegisterPage extends AppCompatActivity {
     }
     private void makeCall() {
         if (checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + Uri.encode("*99#")));
-            startActivity(intent);
+//            Intent intent = new Intent(Intent.ACTION_CALL);
+//            intent.setData(Uri.parse("tel:" + Uri.encode("*99#")));
+//            startActivity(intent);
             startActivity(new Intent(RegisterPage.this, SetPinActivity.class));
         } else {
             // Permission not granted, request the permission

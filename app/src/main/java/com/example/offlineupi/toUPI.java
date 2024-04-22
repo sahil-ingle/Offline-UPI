@@ -1,6 +1,5 @@
 package com.example.offlineupi;// ... (existing imports)
 
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -8,21 +7,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -40,8 +33,8 @@ public class toUPI extends AppCompatActivity {
     private static final int REQUEST_PHONE_CALL = 1;
 
     private static final String UID = "*99";
-    private static String sendMoney = "*1";
-    private static String toUPI = "*3#";
+    private static final String sendMoney = "*1";
+    private static final String toUPI = "*3#";
 
     public boolean isFirstTime = true;
 
@@ -130,11 +123,7 @@ public class toUPI extends AppCompatActivity {
         );
 
         popupWindow.showAtLocation(anchorView, Gravity.CENTER, 0, -500);
-        popupView.postDelayed(new Runnable() {
-            public void run() {
-                popupWindow.dismiss();
-            }
-        }, 6000); // 6 seconds
+        popupView.postDelayed(popupWindow::dismiss, 6000); // 6 seconds
     }
 
     public void setLocale(String Lang) {

@@ -1,7 +1,6 @@
 package com.example.offlineupi;
 
 import android.Manifest;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +25,6 @@ import java.util.Locale;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-
 
 
 public class MainActivity extends Menu{
@@ -75,26 +72,19 @@ public class MainActivity extends Menu{
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
         }
 
-        String myValue = Menu.getMyString();
         setLocale(savedLang);
 
-        binding.searchCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-            }
+        binding.searchCardView.setOnClickListener(view1 -> {
+            Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
         });
 
 
-        binding.searchEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-            }
+        binding.searchEditText.setOnClickListener(view12 -> {
+            Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
         });
 
 
@@ -163,23 +153,23 @@ public class MainActivity extends Menu{
         return availability != ConnectionResult.SUCCESS;
     }
 
-    private static boolean checkCustomRecovery() {
-        // List of common custom recovery filenames
-        String[] customRecoveryFiles = {
-                "/proc/last_kmsg",  // File often modified by custom recoveries
-                "/etc/recovery.fstab" // Another file that may indicate a custom recovery
-                // Add more filenames as needed
-        };
-
-        for (String filename : customRecoveryFiles) {
-            if (new File(filename).exists()) {
-                return true; // Found a file associated with custom recovery
-
-            }
-        }
-
-        return false; // No file associated with custom recovery found
-    }
+//    private static boolean checkCustomRecovery() {
+//        // List of common custom recovery filenames
+//        String[] customRecoveryFiles = {
+//                "/proc/last_kmsg",  // File often modified by custom recoveries
+//                "/etc/recovery.fstab" // Another file that may indicate a custom recovery
+//                // Add more filenames as needed
+//        };
+//
+//        for (String filename : customRecoveryFiles) {
+//            if (new File(filename).exists()) {
+//                return true; // Found a file associated with custom recovery
+//
+//            }
+//        }
+//
+//        return false; // No file associated with custom recovery found
+//    }
 
     //root checker4
 

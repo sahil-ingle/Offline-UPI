@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,10 +32,10 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
     public static final String LANG_KEY = "selected_language";
 
     private static final String UID = "*99";
-    private String changeAccount = "*4";
+    private final String changeAccount = "*4";
 
-    private String language = "*2";
-    private String remark = "*1#";
+    private final String language = "*2";
+    private final String remark = "*1#";
     private String selectedLang = "*1#";
 
     private boolean isLanguageChange = false;
@@ -86,21 +85,12 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
             }
         }
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Menu.this, MainActivity.class);
-                startActivity(i);
-            }
+        binding.backBtn.setOnClickListener(view1 -> {
+            Intent i = new Intent(Menu.this, MainActivity.class);
+            startActivity(i);
         });
 
-        binding.logOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showLogoutConfirmationDialog();
-
-            }
-        });
+        binding.logOutBtn.setOnClickListener(view12 -> showLogoutConfirmationDialog());
 
     }
 
@@ -198,19 +188,13 @@ public class Menu extends AppCompatActivity implements AdapterView.OnItemSelecte
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Logout");
         builder.setMessage("Are you sure you want to logout?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // User clicked Yes, logout
-                logout();
-            }
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // User clicked Yes, logout
+            logout();
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // User clicked No, do nothing
-                dialog.dismiss();
-            }
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // User clicked No, do nothing
+            dialog.dismiss();
         });
         AlertDialog dialog = builder.create();
         dialog.show();

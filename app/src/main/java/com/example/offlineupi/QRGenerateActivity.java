@@ -1,7 +1,5 @@
 package com.example.offlineupi;
 
-import static java.util.Collections.replaceAll;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +8,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.offlineupi.databinding.ActivityMenuBinding;
 import com.example.offlineupi.databinding.ActivityQrgenerateBinding;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -47,12 +44,9 @@ public class QRGenerateActivity extends AppCompatActivity {
         UPIpay = "upi://pay?pa=" + upiId + "&pn=" + name;
         generateQRCode(UPIpay);
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(QRGenerateActivity.this, Menu.class);
-                startActivity(i);
-            }
+        binding.backBtn.setOnClickListener(view1 -> {
+            Intent i = new Intent(QRGenerateActivity.this, Menu.class);
+            startActivity(i);
         });
 
 

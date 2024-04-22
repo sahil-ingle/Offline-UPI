@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.offlineupi.databinding.ActivityGetStartedBinding;
-import com.example.offlineupi.databinding.ActivityRegisterPageBinding;
 
 import java.util.Locale;
 
@@ -26,7 +25,6 @@ public class getStartedActivity extends AppCompatActivity implements AdapterView
     public static final String LANG_KEY = "selected_language";
     private SharedPreferences sharedPref;
 
-    private Spinner spinner;
     private static final String[] paths = {"English", "हिंदी (Hindi)", "தமிழ் (Tamil)", "മലയാളം (Malayalam)", "ಕನ್ನಡ (Kannada)", "తెలుగు (Telugu)"};
 
 
@@ -45,18 +43,15 @@ public class getStartedActivity extends AppCompatActivity implements AdapterView
             startActivity(i);
         }
 
-        binding.continueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLocale(lang);
-                Intent i = new Intent(getStartedActivity.this,RegisterPage.class);
-                startActivity(i);
-            }
+        binding.continueBtn.setOnClickListener(view1 -> {
+            setLocale(lang);
+            Intent i = new Intent(getStartedActivity.this,RegisterPage.class);
+            startActivity(i);
         });
 
         sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        spinner = binding.langSelect;
+        Spinner spinner = binding.langSelect;
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getStartedActivity.this,
                 android.R.layout.simple_spinner_item, paths);
 

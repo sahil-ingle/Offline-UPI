@@ -13,29 +13,21 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.offlineupi.EncryptionHelper;
-import com.example.offlineupi.MainActivity;
-
 import java.util.Locale;
 
 public class EnterPinActivity extends AppCompatActivity {
 
-    private EditText pinEditText1, pinEditText2, pinEditText3, pinEditText4;
     private String enteredPin;
     String first = "";
     String second = "";
     String third = "";
     String fourth = "";
     Integer variableCounter = 1;
-
-    public boolean isFirstTime = true;
 
 
     @Override
@@ -48,10 +40,10 @@ public class EnterPinActivity extends AppCompatActivity {
 
         setLocale(savedLang);
 
-        pinEditText1 = findViewById(R.id.customEditText1);
-        pinEditText2 = findViewById(R.id.customEditText2);
-        pinEditText3 = findViewById(R.id.customEditText3);
-        pinEditText4 = findViewById(R.id.customEditText4);
+        EditText pinEditText1 = findViewById(R.id.customEditText1);
+        EditText pinEditText2 = findViewById(R.id.customEditText2);
+        EditText pinEditText3 = findViewById(R.id.customEditText3);
+        EditText pinEditText4 = findViewById(R.id.customEditText4);
 
         setEditTextFocusChangeListener(pinEditText1, null, pinEditText2);
         setEditTextFocusChangeListener(pinEditText2, pinEditText1, pinEditText3);
@@ -64,12 +56,9 @@ public class EnterPinActivity extends AppCompatActivity {
 
 
         Button forgetPinButton = findViewById(R.id.forgetPinButton);
-        forgetPinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open Set Pin Activity or perform desired action
-                startActivity(new Intent(EnterPinActivity.this, useOfSecurityQuestion.class));
-            }
+        forgetPinButton.setOnClickListener(v -> {
+            // Open Set Pin Activity or perform desired action
+            startActivity(new Intent(EnterPinActivity.this, useOfSecurityQuestion.class));
         });
 
         validatePin();
