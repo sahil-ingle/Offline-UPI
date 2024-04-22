@@ -30,5 +30,8 @@
     <string name="select_from_contacts">Select from Contacts</string>
     <string name="scan_qr_code">Scan QR code</string>
     <string name="back">Back</string>
+    <string name="Activate_info">Just follow these simple steps:\n\n1. Tap the Setup Button.\n2. Wait for 5-10 seconds.\n3. Fill in the bank details as shown on the prompt.\n4. If you see your balance, you\'re all set!\n5. You can continue now.\n\n!! If you don\'t see the option to check your balance, don\'t worry! Just try again. !!</string>
+    <string name="activate_offline_upi">Activate Offline UPI</string>
+    <string name="setup">Setup</string>
 
 </resources>

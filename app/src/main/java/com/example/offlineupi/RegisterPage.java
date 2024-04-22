@@ -94,7 +94,7 @@ public class RegisterPage extends AppCompatActivity {
 //            Intent intent = new Intent(Intent.ACTION_CALL);
 //            intent.setData(Uri.parse("tel:" + Uri.encode("*99#")));
 //            startActivity(intent);
-            startActivity(new Intent(RegisterPage.this, SetPinActivity.class));
+            startActivity(new Intent(RegisterPage.this, offlineRegister.class));
         } else {
             // Permission not granted, request the permission
             Toast.makeText(this, "Permission denied. Phone functionality may not work.", Toast.LENGTH_SHORT).show();

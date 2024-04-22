@@ -31,6 +31,11 @@
         <string name="select_from_contacts">संपर्कों से चयन करें</string>
         <string name="scan_qr_code">क्यूआर कोड स्कैन करें</string>
         <string name="back">वापस</string>
+        <string name="Activate_info">सिर्फ इन सरल कदमों का पालन करें:\n\n1. सेटअप बटन दबाएं।\n2. 5-10 सेकंड के लिए प्रतीक्षा करें।\n3. प्रॉम्प्ट पर दिखाए गए बैंक विवरण भरें।\n4. अगर आप अपना शेष देखते हैं, तो आप तैयार हैं!\n5. अब आप जारी रख सकते हैं।\n\n!! अगर आप अपना शेष जाँचने का विकल्प नहीं देखते हैं, तो चिंता न करें! फिर से प्रयास करें। !!</string>
+        <string name="activate_offline_upi">ऑफ़लाइन UPI सक्रिय करें</string>
+        <string name="setup">सेटअप</string>
+
+
 
 
 </resources>
