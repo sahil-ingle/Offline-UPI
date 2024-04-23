@@ -1,11 +1,14 @@
 package com.example.offlineupi;
 
+import static com.example.offlineupi.getStartedActivity.LANG_KEY;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -41,7 +44,8 @@ public class toPhone extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        String myValue = Menu.getMyString();
+        SharedPreferences sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String myValue = sharedPref.getString(LANG_KEY, "en");
         setLocale(myValue);
 
         SharedPreferences prefs = getSharedPreferences("contact_number", MODE_PRIVATE);
@@ -68,17 +72,6 @@ public class toPhone extends AppCompatActivity {
         startActivity(i);
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        if (isFirstTime) {
-            isFirstTime = false;
-            String myValue = Menu.getMyString();
-            setLocale(myValue);
-            recreate();
-
-        }
-    }
 
     public void onContactsClick(View view){
         Intent i = new Intent(this, ContactsActivity.class);
