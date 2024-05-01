@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -40,6 +41,8 @@ public class EnterPinActivity extends AppCompatActivity {
 
         setLocale(savedLang);
 
+
+
         EditText pinEditText1 = findViewById(R.id.customEditText1);
         EditText pinEditText2 = findViewById(R.id.customEditText2);
         EditText pinEditText3 = findViewById(R.id.customEditText3);
@@ -54,6 +57,7 @@ public class EnterPinActivity extends AppCompatActivity {
         setBackKeyListener(pinEditText3, pinEditText2);
         setBackKeyListener(pinEditText4, pinEditText3);
 
+        pinEditText1.requestFocus();
 
         Button forgetPinButton = findViewById(R.id.forgetPinButton);
         forgetPinButton.setOnClickListener(v -> {
