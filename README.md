@@ -2,7 +2,7 @@
 
 This Android application enables users to make offline transactions using UPI (Unified Payments Interface) without requiring an internet connection. The project is implemented in Java and provides a seamless payment experience for users even in scenarios where internet connectivity is limited or unavailable.
 
-[![Latest release](https://img.shields.io/github/v/release/sahil-ingle/Offline-UPI?label=pre-release&logo=github)](https://github.com/sahil-ingle/Offline-UPI/releases)
+[![Latest release](https://img.shields.io/badge/Releases-v0.9-blue)](https://github.com/sahil-ingle/Offline-UPI/releases)
 
 ## Features
 
