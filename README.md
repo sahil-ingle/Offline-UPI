@@ -20,7 +20,7 @@ This Android application enables users to make offline transactions using UPI (U
 
 ## Releases
 
-You can find the latest release of the application in the [Releases](link_to_releases) section of this repository. Download the APK file from there and follow the installation instructions.
+You can find the latest release of the application in the [Releases]([link_to_releases](https://github.com/sahil-ingle/Offline-UPI/releases/tag/1.0-beta)) section of this repository. Download the APK file from there and follow the installation instructions.
 
 ## Contributions
 
