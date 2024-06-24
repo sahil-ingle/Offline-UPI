@@ -4,6 +4,9 @@ This Android application enables users to make offline transactions using UPI (U
 
 [![Latest release](https://img.shields.io/badge/Releases-v0.9-blue)](https://github.com/sahil-ingle/Offline-UPI/releases)
 
+### Note
+- Only work with SIM having GSM support
+
 ## Features
 
 - **Offline UPI Transactions**: Users can initiate UPI transactions without an internet connection.
